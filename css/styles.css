@@ -167,10 +167,26 @@ nav a {
 }
 
 /* ✅ Footer Section */
+/* Footer Styling */
 footer {
-  text-align: center;
-  padding: 20px;
-  background: #111;
-  color: white;
-  font-size: 0.9rem;
+  text-align: center; /* Centers all footer content */
+  padding: 20px; /* Adds spacing around the footer */
+  background-color: #121212; /* Optional: Dark background for contrast */
+  color: white; /* Text color */
+}
+
+footer .social-links {
+  margin-top: 10px; /* Adds spacing between the text and links */
+}
+
+footer .social-links a {
+  color: #28a745; /* Consistent green link color */
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 5px; /* Adds spacing between links */
+  transition: color 0.3s ease;
+}
+
+footer .social-links a:hover {
+  color: #1e7e34; /* Darker green on hover */
 }
