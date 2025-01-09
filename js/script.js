@@ -47,3 +47,17 @@ themeToggleButton.addEventListener("click", () => {
   htmlElement.setAttribute("data-theme", newTheme);
   updateImagesForTheme(newTheme); // Update images for the new theme
 });
+
+// Handle scroll event to toggle 'scrolling' class on the body
+let isScrolling;
+window.addEventListener("scroll", () => {
+  document.body.classList.add("scrolling");
+
+  // Clear timeout if it exists
+  window.clearTimeout(isScrolling);
+
+  // Set a timeout to remove the class after scrolling stops
+  isScrolling = setTimeout(() => {
+    document.body.classList.remove("scrolling");
+  }, 300);
+});

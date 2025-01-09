@@ -336,3 +336,12 @@ html[data-theme="dark"] {
     width: 64px; /* Larger size for desktop */
   }
 }
+
+/* Fade out images/icons when scrolling */
+img {
+  transition: opacity 0.1s ease-in-out; /* Smooth transition for fading */
+}
+
+body.scrolling img {
+  opacity: 0.1; /* Fade out to 50% opacity */
+}
