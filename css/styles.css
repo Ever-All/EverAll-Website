@@ -6,13 +6,31 @@ body {
   line-height: 1.6;
   color: #333;
   background-color: #f9f9f9;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ✅ Theme Toggle Button - Improved */
+#theme-toggle {
+  background: none; /* Remove any background */
+  border: none; /* Remove border */
+  padding: 10px;
+  cursor: pointer;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 9999; /* Keep the button on top */
+}
+
+#theme-toggle img {
+  width: 64px;
+  height: 64px;
 }
 
 /* ✅ Header */
 header {
   text-align: center;
   padding: 20px;
-  background: #28a745;
+  background: #9c7aa0;
   color: white;
 }
 
@@ -36,18 +54,9 @@ nav a {
 .hero {
   padding: 50px;
   text-align: center;
-  background: #28a745;
+  background: #9c7aa0;
   color: white;
-}
-
-.cta-button {
-  display: inline-block;
-  padding: 10px 20px;
-  background: #333;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-top: 20px;
+  transition: background-color 0.3s ease;
 }
 
 /* ✅ About Section - Centered */
@@ -82,7 +91,6 @@ nav a {
   margin-bottom: 20px;
 }
 
-/* Adjusted for consistent centering */
 .features-container {
   display: flex;
   justify-content: center;
@@ -100,6 +108,7 @@ nav a {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   flex: 1 1 300px;
   text-align: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 /* ✅ Mobile and Desktop Adjustments for Consistency */
@@ -154,7 +163,7 @@ nav a {
 }
 
 #contact-form button {
-  background: #28a745;
+  background: #9c7aa0;
   color: white;
   border: none;
   padding: 10px;
@@ -167,26 +176,37 @@ nav a {
 }
 
 /* ✅ Footer Section */
-/* Footer Styling */
 footer {
-  text-align: center; /* Centers all footer content */
-  padding: 20px; /* Adds spacing around the footer */
-  background-color: #121212; /* Optional: Dark background for contrast */
-  color: white; /* Text color */
+  text-align: center;
+  padding: 20px;
+  background-color: #121212;
+  color: white;
 }
 
 footer .social-links {
-  margin-top: 10px; /* Adds spacing between the text and links */
+  margin-top: 10px;
 }
 
 footer .social-links a {
-  color: #28a745; /* Consistent green link color */
+  color: #9c7aa0;
   text-decoration: none;
   font-weight: bold;
-  margin: 0 5px; /* Adds spacing between links */
+  margin: 0 5px;
   transition: color 0.3s ease;
 }
 
 footer .social-links a:hover {
-  color: #1e7e34; /* Darker green on hover */
+  color: #805b85;
+}
+
+/* Default Light Theme */
+html[data-theme="light"] {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Dark Theme */
+html[data-theme="dark"] {
+  background-color: #121212;
+  color: #fff;
 }

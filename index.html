@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>EverAll - Real-Time Trading Alerts</title>
+
+    <!-- Favicon Links -->
+    <!-- Default favicon is white icon for light mode -->
+    <link
+      rel="icon"
+      href="assets/images/Transparent Black Full Circle.png"
+      type="image/x-icon"
+      id="favicon-light"
+    />
+    <link
+      rel="icon"
+      href="assets/images/Transparent White Full Circle.png"
+      type="image/x-icon"
+      id="favicon-dark"
+      disabled
+    />
+
     <link rel="stylesheet" href="css/styles.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
@@ -12,6 +29,22 @@
     />
   </head>
   <body>
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" aria-label="Toggle Dark Mode">
+      <img
+        src="assets/images/Transparent Black Full Circle.png"
+        alt="Light Mode"
+        class="icon-light"
+        id="icon-light"
+      />
+      <img
+        src="assets/images/Transparent White Full Circle.png"
+        alt="Dark Mode"
+        class="icon-dark"
+        id="icon-dark"
+      />
+    </button>
+
     <!-- Header with Hero Section -->
     <header>
       <div class="hero">
