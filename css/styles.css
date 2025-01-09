@@ -4,31 +4,25 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  color: #333;
-  background-color: #f9f9f9;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ✅ Theme Toggle Button - Improved */
+/* Theme Toggle Button */
 #theme-toggle {
-  background: none; /* Remove any background */
-  border: none; /* Remove border */
+  background: none;
+  border: none;
   padding: 10px;
   cursor: pointer;
   position: fixed;
   top: 10px;
   left: 10px;
-  z-index: 9999; /* Keep the button on top */
+  z-index: 9999;
 }
 
 #theme-toggle img {
-  object-fit: contain; /* Ensure the image maintains its aspect ratio */
-  width: calc(
-    var(--discord-toggle-width, 32px) * 1.75
-  ); /* 75% bigger than Discord button */
-  height: calc(
-    var(--discord-toggle-height, 24px) * 1.75
-  ); /* 75% bigger than Discord button */
+  object-fit: contain;
+  width: calc(var(--discord-toggle-width, 32px) * 1.75);
+  height: calc(var(--discord-toggle-height, 24px) * 1.75);
 }
 
 /* Discord Button */
@@ -44,15 +38,9 @@ body {
 }
 
 #discord-toggle img {
-  object-fit: contain; /* Ensure the image maintains its aspect ratio */
-  width: var(
-    --discord-toggle-width,
-    32px
-  ); /* Default size with override option */
-  height: var(
-    --discord-toggle-height,
-    24px
-  ); /* Default size with override option */
+  object-fit: contain;
+  width: var(--discord-toggle-width, 32px);
+  height: var(--discord-toggle-height, 24px);
 }
 
 .discord-icon-light,
@@ -65,12 +53,12 @@ body {
   display: block;
 }
 
-/* ✅ Header */
+/* Header */
 header {
   text-align: center;
   padding: 20px;
-  background: #9c7aa0;
-  color: white;
+  background: var(--header-background);
+  color: var(--text-color);
 }
 
 nav ul {
@@ -85,25 +73,25 @@ nav ul li {
 
 nav a {
   text-decoration: none;
-  color: white;
+  color: var(--link-color);
   font-weight: bold;
 }
 
-/* ✅ Hero Section */
+/* Hero Section */
 .hero {
   padding: 50px;
   text-align: center;
-  background: #9c7aa0;
-  color: white;
+  background: var(--hero-background);
+  color: var(--text-color);
   transition: background-color 0.3s ease;
 }
 
-/* ✅ About Section - Centered */
+/* About Section */
 #about {
   text-align: center;
   padding: 50px 20px;
-  background: #111;
-  color: white;
+  background: var(--about-background);
+  color: var(--text-color);
 }
 
 #about h2 {
@@ -117,12 +105,12 @@ nav a {
   font-size: 1.1rem;
 }
 
-/* ✅ Core Features Section - Centered */
+/* Features Section */
 #features {
   text-align: center;
   padding: 50px 20px;
-  background: #333;
-  color: white;
+  background: var(--features-background);
+  color: var(--text-color);
 }
 
 #features h2 {
@@ -139,8 +127,8 @@ nav a {
 }
 
 .feature-card {
-  background: #222;
-  color: white;
+  background: var(--feature-card-background);
+  color: var(--text-color);
   border-radius: 10px;
   padding: 20px;
   max-width: 300px;
@@ -150,81 +138,10 @@ nav a {
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* ✅ Mobile and Desktop Adjustments for Consistency */
-@media screen and (max-width: 767px) {
-  .features-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #about,
-  #features {
-    padding: 40px 10px;
-  }
-
-  /* Hide theme toggle button on mobile devices */
-  #theme-toggle {
-    display: none;
-  }
-
-  #theme-toggle img,
-  #discord-toggle img {
-    width: calc(
-      var(--discord-toggle-width-mobile, 32px) * 1.75
-    ); /* 75% bigger for mobile */
-    height: calc(
-      var(--discord-toggle-height-mobile, 24px) * 1.75
-    ); /* 75% bigger for mobile */
-  }
-
-  #discord-toggle img {
-    width: var(
-      --discord-toggle-width-mobile,
-      32px
-    ); /* Smaller size for mobile with override option */
-    height: var(
-      --discord-toggle-height-mobile,
-      24px
-    ); /* Smaller size for mobile with override option */
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .features-container {
-    justify-content: center;
-  }
-
-  #about,
-  #features {
-    padding: 60px;
-  }
-
-  #theme-toggle img,
-  #discord-toggle img {
-    width: calc(
-      var(--discord-toggle-width-desktop, 32px) * 1.75
-    ); /* 75% bigger for desktop */
-    height: calc(
-      var(--discord-toggle-height-desktop, 24px) * 1.75
-    ); /* 75% bigger for desktop */
-  }
-
-  #discord-toggle img {
-    width: var(
-      --discord-toggle-width-desktop,
-      32px
-    ); /* Larger size for desktop with override option */
-    height: var(
-      --discord-toggle-height-desktop,
-      24px
-    ); /* Larger size for desktop with override option */
-  }
-}
-
-/* ✅ Contact Section */
+/* Contact Section */
 #contact {
-  background: #111;
-  color: white;
+  background: var(--contact-background);
+  color: var(--text-color);
   text-align: center;
   padding: 50px 20px;
 }
@@ -249,8 +166,8 @@ nav a {
 }
 
 #contact-form button {
-  background: #9c7aa0;
-  color: white;
+  background: var(--button-background);
+  color: var(--text-color);
   border: none;
   padding: 10px;
   border-radius: 5px;
@@ -258,15 +175,15 @@ nav a {
 }
 
 #contact-form button:hover {
-  background: #218838;
+  background: var(--button-hover-background);
 }
 
-/* ✅ Footer Section */
+/* Footer Section */
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #121212;
-  color: white;
+  background-color: var(--footer-background);
+  color: var(--text-color);
 }
 
 footer .social-links {
@@ -274,7 +191,7 @@ footer .social-links {
 }
 
 footer .social-links a {
-  color: #9c7aa0;
+  color: var(--link-color);
   text-decoration: none;
   font-weight: bold;
   margin: 0 5px;
@@ -282,66 +199,112 @@ footer .social-links a {
 }
 
 footer .social-links a:hover {
-  color: #805b85;
+  color: var(--link-hover-color);
 }
 
 /* Default Light Theme */
 html[data-theme="light"] {
-  background-color: #fff;
-  color: #000;
+  --background-color: #fff;
+  --text-color: #000;
+  --header-background: #9c7aa0;
+  --hero-background: #9c7aa0;
+  --about-background: #f0f0f0;
+  --features-background: #e0e0e0;
+  --feature-card-background: #fff;
+  --contact-background: #f0f0f0;
+  --footer-background: #e0e0e0;
+  --button-background: #9c7aa0;
+  --button-hover-background: #76527a;
+  --link-color: #9c7aa0;
+  --link-hover-color: #805b85;
 }
 
 /* Dark Theme */
 html[data-theme="dark"] {
-  background-color: #121212;
-  color: #fff;
+  --background-color: #121212;
+  --text-color: #fff;
+  --header-background: #9c7aa0;
+  --hero-background: #9c7aa0;
+  --about-background: #111;
+  --features-background: #333;
+  --feature-card-background: #222;
+  --contact-background: #111;
+  --footer-background: #121212;
+  --button-background: #9c7aa0;
+  --button-hover-background: #76527a;
+  --link-color: #9c7aa0;
+  --link-hover-color: #805b85;
 }
 
-/* Discord Clyde Icon Fixes */
-#icon-clyde-light,
-#icon-clyde-dark {
-  display: none; /* Hide both images by default */
-  position: absolute; /* Position images so they don't take up full space */
-  top: 10px; /* Adjust as needed for positioning */
-  left: 10px; /* Adjust as needed for positioning */
-  width: 64px; /* Adjust the size as needed */
-  height: 64px; /* Adjust the size as needed */
-  z-index: 9998; /* Ensure it's layered correctly but behind the theme toggle */
+/* Apply Theme Colors */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
-#icon-clyde-light.visible,
-#icon-clyde-dark.visible {
-  display: block; /* Only show images with 'visible' class */
+header,
+.hero,
+#about {
+  color: var(--text-color);
+}
+#features {
+  color: var(--text-color);
+}
+#contact {
+  color: var(--text-color);
+}
+footer,
+#contact-form button {
+  color: var(--text-color);
+}
+
+#contact-form button {
+  background: var(--button-background);
+}
+
+#contact-form button:hover {
+  background: var(--button-hover-background);
+}
+
+nav a {
+  color: var(--text-color);
+}
+footer .social-links a {
+  color: var(--link-color);
+}
+
+footer .social-links a:hover {
+  color: var(--link-hover-color);
 }
 
 /* Responsive Image Adjustments */
 @media screen and (max-width: 767px) {
   #theme-toggle img {
-    height: 64; /* Smaller size for mobile */
-    width: 64; /* Smaller size for mobile */
+    height: 64px;
+    width: 64px;
   }
   #discord-toggle img {
-    height: 32; /* Smaller size for mobile */
-    width: 32; /* Smaller size for mobile */
+    height: 32px;
+    width: 32px;
   }
 }
 
 @media screen and (min-width: 768px) {
   #theme-toggle img {
-    height: 128px; /* Larger size for desktop */
-    width: 128px; /* Larger size for desktop */
+    height: 128px;
+    width: 128px;
   }
   #discord-toggle img {
-    height: 64px; /* Larger size for desktop */
-    width: 64px; /* Larger size for desktop */
+    height: 64px;
+    width: 64px;
   }
 }
 
 /* Fade out images/icons when scrolling */
 img {
-  transition: opacity 0.1s ease-in-out; /* Smooth transition for fading */
+  transition: opacity 0.1s ease-in-out;
 }
 
 body.scrolling img {
-  opacity: 0.1; /* Fade out to 50% opacity */
+  opacity: 0.1;
 }
