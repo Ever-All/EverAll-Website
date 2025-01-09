@@ -22,8 +22,13 @@ body {
 }
 
 #theme-toggle img {
-  width: 64px; /* Adjust the size as needed */
-  height: 64px; /* Adjust the size as needed */
+  object-fit: contain; /* Ensure the image maintains its aspect ratio */
+  width: calc(
+    var(--discord-toggle-width, 32px) * 1.75
+  ); /* 75% bigger than Discord button */
+  height: calc(
+    var(--discord-toggle-height, 24px) * 1.75
+  ); /* 75% bigger than Discord button */
 }
 
 /* Discord Button */
@@ -39,8 +44,15 @@ body {
 }
 
 #discord-toggle img {
-  width: 32px; /* Adjust the size as needed */
-  height: 24px; /* Adjust the size as needed */
+  object-fit: contain; /* Ensure the image maintains its aspect ratio */
+  width: var(
+    --discord-toggle-width,
+    32px
+  ); /* Default size with override option */
+  height: var(
+    --discord-toggle-height,
+    24px
+  ); /* Default size with override option */
 }
 
 .discord-icon-light,
@@ -68,7 +80,7 @@ nav ul {
 
 nav ul li {
   display: inline;
-  margin: 0 15px;
+  margin: 0 30px;
 }
 
 nav a {
@@ -154,6 +166,27 @@ nav a {
   #theme-toggle {
     display: none;
   }
+
+  #theme-toggle img,
+  #discord-toggle img {
+    width: calc(
+      var(--discord-toggle-width-mobile, 32px) * 1.75
+    ); /* 75% bigger for mobile */
+    height: calc(
+      var(--discord-toggle-height-mobile, 24px) * 1.75
+    ); /* 75% bigger for mobile */
+  }
+
+  #discord-toggle img {
+    width: var(
+      --discord-toggle-width-mobile,
+      32px
+    ); /* Smaller size for mobile with override option */
+    height: var(
+      --discord-toggle-height-mobile,
+      24px
+    ); /* Smaller size for mobile with override option */
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -164,6 +197,27 @@ nav a {
   #about,
   #features {
     padding: 60px;
+  }
+
+  #theme-toggle img,
+  #discord-toggle img {
+    width: calc(
+      var(--discord-toggle-width-desktop, 32px) * 1.75
+    ); /* 75% bigger for desktop */
+    height: calc(
+      var(--discord-toggle-height-desktop, 24px) * 1.75
+    ); /* 75% bigger for desktop */
+  }
+
+  #discord-toggle img {
+    width: var(
+      --discord-toggle-width-desktop,
+      32px
+    ); /* Larger size for desktop with override option */
+    height: var(
+      --discord-toggle-height-desktop,
+      24px
+    ); /* Larger size for desktop with override option */
   }
 }
 
@@ -258,4 +312,27 @@ html[data-theme="dark"] {
 #icon-clyde-light.visible,
 #icon-clyde-dark.visible {
   display: block; /* Only show images with 'visible' class */
+}
+
+/* Responsive Image Adjustments */
+@media screen and (max-width: 767px) {
+  #theme-toggle img {
+    height: 64; /* Smaller size for mobile */
+    width: 64; /* Smaller size for mobile */
+  }
+  #discord-toggle img {
+    height: 32; /* Smaller size for mobile */
+    width: 32; /* Smaller size for mobile */
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #theme-toggle img {
+    height: 128px; /* Larger size for desktop */
+    width: 128px; /* Larger size for desktop */
+  }
+  #discord-toggle img {
+    height: 64px; /* Larger size for desktop */
+    width: 64px; /* Larger size for desktop */
+  }
 }
