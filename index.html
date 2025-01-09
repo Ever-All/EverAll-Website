@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>EverAll - Real-Time Trading Alerts</title>
+    <title>EverAll</title>
 
     <!-- Favicon Links -->
     <!-- Default favicon is white icon for light mode -->
@@ -32,19 +32,40 @@
     <!-- Theme Toggle Button -->
     <button id="theme-toggle" aria-label="Toggle Dark Mode">
       <img
+        data-light="assets/images/Transparent Black Full Circle.png"
+        data-dark="assets/images/Transparent White Full Circle.png"
         src="assets/images/Transparent Black Full Circle.png"
         alt="Light Mode"
         class="icon-light"
         id="icon-light"
       />
-      <img
-        src="assets/images/Transparent White Full Circle.png"
-        alt="Dark Mode"
-        class="icon-dark"
-        id="icon-dark"
-      />
     </button>
 
+    <!-- Discord Icon Toggle Button -->
+    <a
+      href="https://discord.gg/pWpSpneeUe"
+      target="_blank"
+      id="discord-toggle"
+      aria-label="Discord"
+    >
+      <img
+        data-light="assets/images/discord-clyde/icon_clyde_black_RGB.png"
+        data-dark="assets/images/discord-clyde/icon_clyde_white_RGB.png"
+        src="assets/images/discord-clyde/icon_clyde_black_RGB.png"
+        alt="Discord Light"
+        class="discord-icon-light"
+        id="discord-icon-light"
+      />
+      <img
+        data-light="assets/images/discord-clyde/icon_clyde_black_RGB.png"
+        data-dark="assets/images/discord-clyde/icon_clyde_white_RGB.png"
+        src="assets/images/discord-clyde/icon_clyde_white_RGB.png"
+        alt="Discord Dark"
+        class="discord-icon-dark"
+        id="discord-icon-dark"
+        disabled
+      />
+    </a>
     <!-- Header with Hero Section -->
     <header>
       <div class="hero">
@@ -138,7 +159,7 @@
           >Privacy Policy</a
         >
         |
-        <a href="https://discord.gg/pWpSpneeUe">Discord</a>
+        <a href="https://discord.gg/pWpSpneeUe" target="_blank">Discord</a>
       </div>
     </footer>
 

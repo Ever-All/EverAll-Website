@@ -1,56 +1,49 @@
+// Dark mode toggle functionality
 const themeToggleButton = document.getElementById("theme-toggle");
 const htmlElement = document.documentElement;
-const faviconLight = document.getElementById("favicon-light");
-const faviconDark = document.getElementById("favicon-dark");
-const iconLight = document.getElementById("icon-light");
-const iconDark = document.getElementById("icon-dark");
+const images = document.querySelectorAll("img"); // Select all images to update
 
-// Set default to dark mode (white icon for dark mode)
+// Function to update images based on the theme
+const updateImagesForTheme = (theme) => {
+  images.forEach((img) => {
+    const src = img.getAttribute("data-" + theme); // Get the source for the current theme
+    if (src) {
+      img.setAttribute("src", src); // Update the image source
+    }
+  });
+
+  // Update favicon based on theme
+  const faviconLight = document.getElementById("favicon-light");
+  const faviconDark = document.getElementById("favicon-dark");
+  if (theme === "dark") {
+    faviconLight.setAttribute("disabled", "true");
+    faviconDark.removeAttribute("disabled");
+  } else {
+    faviconLight.removeAttribute("disabled");
+    faviconDark.setAttribute("disabled", "true");
+  }
+
+  // Update Discord button based on theme
+  const discordIconLight = document.getElementById("discord-icon-light");
+  const discordIconDark = document.getElementById("discord-icon-dark");
+  if (theme === "dark") {
+    discordIconLight.classList.remove("visible");
+    discordIconDark.classList.add("visible");
+  } else {
+    discordIconLight.classList.add("visible");
+    discordIconDark.classList.remove("visible");
+  }
+};
+
+// Default to dark mode
 htmlElement.setAttribute("data-theme", "dark");
-faviconLight.setAttribute("disabled", "true"); // Disable light mode favicon
-faviconDark.removeAttribute("disabled"); // Enable dark mode favicon
-iconLight.style.display = "none"; // Hide light mode icon
-iconDark.style.display = "block"; // Show dark mode icon
+updateImagesForTheme("dark"); // Set the images to dark mode
 
 // Toggle between light and dark mode
 themeToggleButton.addEventListener("click", () => {
   const currentTheme = htmlElement.getAttribute("data-theme");
-  if (currentTheme === "light") {
-    // Switch to dark mode
-    htmlElement.setAttribute("data-theme", "dark");
-    faviconLight.setAttribute("disabled", "true"); // Disable light mode favicon
-    faviconDark.removeAttribute("disabled"); // Enable dark mode favicon
-    iconLight.style.display = "none"; // Hide light mode icon
-    iconDark.style.display = "block"; // Show dark mode icon
-  } else {
-    // Switch to light mode
-    htmlElement.setAttribute("data-theme", "light");
-    faviconLight.removeAttribute("disabled"); // Enable light mode favicon
-    faviconDark.setAttribute("disabled", "true"); // Disable dark mode favicon
-    iconLight.style.display = "block"; // Show light mode icon
-    iconDark.style.display = "none"; // Hide dark mode icon
-  }
+  const newTheme = currentTheme === "light" ? "dark" : "light"; // Toggle theme
+
+  htmlElement.setAttribute("data-theme", newTheme);
+  updateImagesForTheme(newTheme); // Update images for the new theme
 });
-
-// Contact form submission functionality
-document
-  .getElementById("contact-form")
-  .addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    // Simple form validation
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
-
-    if (name && email && message) {
-      alert("Message sent successfully!");
-      // Here you could later send this data to your backend API using fetch or AJAX
-      // Example: fetch('/api/contact', { method: 'POST', body: JSON.stringify({ name, email, message }) });
-
-      // Reset the form
-      document.getElementById("contact-form").reset();
-    } else {
-      alert("Please fill in all fields.");
-    }
-  });

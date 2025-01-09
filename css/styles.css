@@ -22,8 +22,35 @@ body {
 }
 
 #theme-toggle img {
-  width: 64px;
-  height: 64px;
+  width: 64px; /* Adjust the size as needed */
+  height: 64px; /* Adjust the size as needed */
+}
+
+/* Discord Button */
+#discord-toggle {
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 9999;
+}
+
+#discord-toggle img {
+  width: 32px; /* Adjust the size as needed */
+  height: 24px; /* Adjust the size as needed */
+}
+
+.discord-icon-light,
+.discord-icon-dark {
+  display: none;
+}
+
+.discord-icon-light.visible,
+.discord-icon-dark.visible {
+  display: block;
 }
 
 /* ✅ Header */
@@ -214,4 +241,21 @@ html[data-theme="light"] {
 html[data-theme="dark"] {
   background-color: #121212;
   color: #fff;
+}
+
+/* Discord Clyde Icon Fixes */
+#icon-clyde-light,
+#icon-clyde-dark {
+  display: none; /* Hide both images by default */
+  position: absolute; /* Position images so they don't take up full space */
+  top: 10px; /* Adjust as needed for positioning */
+  left: 10px; /* Adjust as needed for positioning */
+  width: 64px; /* Adjust the size as needed */
+  height: 64px; /* Adjust the size as needed */
+  z-index: 9998; /* Ensure it's layered correctly but behind the theme toggle */
+}
+
+#icon-clyde-light.visible,
+#icon-clyde-dark.visible {
+  display: block; /* Only show images with 'visible' class */
 }
