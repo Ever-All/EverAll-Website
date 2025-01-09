@@ -6,10 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Your Discord Bot Website</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <!-- Header with Hero Section -->
     <header>
-      <h1>Welcome to My Discord Bot</h1>
+      <div class="hero">
+        <h1>Welcome to My Discord Bot</h1>
+        <p>Automate, manage, and improve your server with ease!</p>
+        <a href="#about" class="cta-button">Learn More</a>
+      </div>
       <nav>
         <ul>
           <li><a href="#about">About</a></li>
@@ -19,23 +28,43 @@
       </nav>
     </header>
 
+    <!-- About Section -->
     <section id="about">
       <h2>About the Bot</h2>
-      <p>Learn more about how this bot can help you manage your server.</p>
+      <p>
+        This bot is designed to help server admins with automation, moderation,
+        and a host of useful features that keep your community engaged.
+      </p>
     </section>
 
+    <!-- Features Section -->
     <section id="features">
       <h2>Features</h2>
-      <ul>
-        <li>Feature 1</li>
-        <li>Feature 2</li>
-        <li>Feature 3</li>
-      </ul>
+      <div class="features-container">
+        <div class="feature-card">
+          <h3>Automated Moderation</h3>
+          <p>
+            Automatically moderate chats with customizable filters and rules.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>Role Management</h3>
+          <p>
+            Manage roles dynamically, ensuring the right permissions are granted
+            to the right members.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>Custom Commands</h3>
+          <p>Create and manage your own commands to fit your server's needs.</p>
+        </div>
+      </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact">
       <h2>Contact Us</h2>
-      <p>If you have any questions, reach out!</p>
+      <p>If you have any questions or need support, feel free to reach out!</p>
       <form id="contact-form">
         <input type="text" id="name" placeholder="Your Name" required />
         <input type="email" id="email" placeholder="Your Email" required />
@@ -44,8 +73,13 @@
       </form>
     </section>
 
+    <!-- Footer Section -->
     <footer>
       <p>&copy; 2025 Your Bot's Name. All rights reserved.</p>
+      <div class="social-links">
+        <a href="#">GitHub</a> | <a href="#">Twitter</a> |
+        <a href="#">Discord</a>
+      </div>
     </footer>
 
     <script src="js/script.js"></script>
