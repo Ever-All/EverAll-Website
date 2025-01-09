@@ -123,8 +123,8 @@ nav a {
     padding: 40px 10px;
   }
 
-  /* Hide theme toggle button icon images on mobile to avoid large files being visible */
-  #theme-toggle img {
+  /* Hide theme toggle button on mobile devices */
+  #theme-toggle {
     display: none;
   }
 }
