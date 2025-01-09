@@ -278,6 +278,14 @@ footer .social-links a:hover {
   color: var(--link-hover-color);
 }
 
+#contact a {
+  color: var(--link-color);
+}
+
+#contact a:hover {
+  color: var(--link-hover-color);
+}
+
 /* Responsive Image Adjustments */
 @media screen and (max-width: 767px) {
   #theme-toggle img {
