@@ -321,8 +321,14 @@ footer .social-links a:hover {
     width: 32px;
   }
 
-  header,
-  #about,
+  header {
+    padding-left: 10px; /* Mobile left padding */
+    padding-right: 10px; /* Mobile right padding */
+  }
+  #about {
+    padding-left: 10px; /* Mobile left padding */
+    padding-right: 10px; /* Mobile right padding */
+  }
   #features {
     padding-left: 10px; /* Mobile left padding */
     padding-right: 10px; /* Mobile right padding */
