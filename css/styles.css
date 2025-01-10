@@ -8,6 +8,24 @@ body {
   text-align: center; /* Center all text */
 }
 
+/* Home Button */
+#home-button {
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  position: fixed;
+  top: 10px; /* Move to the top left */
+  left: 10px;
+  z-index: 9999;
+}
+
+#home-button img {
+  object-fit: contain;
+  width: var(--discord-toggle-width, 75px); /* Smaller size */
+  height: var(--discord-toggle-height, 75px); /* Smaller size */
+}
+
 /* Theme Toggle Button */
 #theme-toggle {
   background: none;
@@ -15,15 +33,15 @@ body {
   padding: 10px;
   cursor: pointer;
   position: fixed;
-  top: 10px;
-  left: 10px;
+  top: 10px; /* Move to where the home button was */
+  right: 10px;
   z-index: 9999;
 }
 
 #theme-toggle img {
   object-fit: contain;
-  width: calc(var(--discord-toggle-width, 32px) * 1.75);
-  height: calc(var(--discord-toggle-height, 24px) * 1.75);
+  width: calc(var(--discord-toggle-width, 32px) * 1.75); /* Larger size */
+  height: calc(var(--discord-toggle-height, 24px) * 1.75); /* Larger size */
 }
 
 /* Discord Button */
@@ -289,8 +307,8 @@ footer .social-links a:hover {
 /* Responsive Image Adjustments */
 @media screen and (max-width: 767px) {
   #theme-toggle img {
-    height: 64px;
-    width: 64px;
+    height: 32px; /* Smaller size */
+    width: 32px; /* Smaller size */
   }
   #discord-toggle img {
     height: 32px;
@@ -300,8 +318,8 @@ footer .social-links a:hover {
 
 @media screen and (min-width: 768px) {
   #theme-toggle img {
-    height: 128px;
-    width: 128px;
+    height: 64px; /* Smaller size */
+    width: 64px; /* Smaller size */
   }
   #discord-toggle img {
     height: 64px;

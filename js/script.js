@@ -1,3 +1,9 @@
+// Home button functionality
+const homeButton = document.getElementById("home-button");
+homeButton.addEventListener("click", () => {
+  window.location.href = "/"; // Redirect to the homepage
+});
+
 // Dark mode toggle functionality
 const themeToggleButton = document.getElementById("theme-toggle");
 const htmlElement = document.documentElement;

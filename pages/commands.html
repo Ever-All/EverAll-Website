@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Commands - EverAll</title>
 
-    <link rel="stylesheet" href="../css/styles.css" />
+    <!-- Link to Root CSS -->
+    <link rel="stylesheet" href="/css/styles.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
@@ -16,12 +17,24 @@
     <!-- Theme Toggle Button -->
     <button id="theme-toggle" aria-label="Toggle Dark Mode">
       <img
-        data-light="../assets/images/Transparent Black Full Circle.png"
-        data-dark="../assets/images/Transparent White Full Circle.png"
-        src="../assets/images/Transparent Black Full Circle.png"
+        data-light="/assets/images/theme-but/lightMode.png"
+        data-dark="/assets/images/theme-but/darkMode.png"
+        src="/assets/images/Transparent%20Black%20Full%20Circle.png"
         alt="Light Mode"
         class="icon-light"
         id="icon-light"
+      />
+    </button>
+
+    <!-- Home Button -->
+    <button id="home-button" aria-label="Home">
+      <img
+        data-light="/assets/images/home-but/logoDark.png"
+        data-dark="/assets/images/home-but/logoLight.png"
+        src="/assets/images/home-but/home%20Black.png"
+        alt="Home"
+        class="icon-home"
+        id="icon-home"
       />
     </button>
 
@@ -33,17 +46,17 @@
       aria-label="Discord"
     >
       <img
-        data-light="../assets/images/discord-clyde/icon_clyde_black_RGB.png"
-        data-dark="../assets/images/discord-clyde/icon_clyde_white_RGB.png"
-        src="../assets/images/discord-clyde/icon_clyde_black_RGB.png"
+        data-light="/assets/images/discord-clyde/icon_clyde_black_RGB.png"
+        data-dark="/assets/images/discord-clyde/icon_clyde_white_RGB.png"
+        src="/assets/images/discord-clyde/icon_clyde_black_RGB.png"
         alt="Discord Light"
         class="discord-icon-light"
         id="discord-icon-light"
       />
       <img
-        data-light="../assets/images/discord-clyde/icon_clyde_black_RGB.png"
-        data-dark="../assets/images/discord-clyde/icon_clyde_white_RGB.png"
-        src="../assets/images/discord-clyde/icon_clyde_white_RGB.png"
+        data-light="/assets/images/discord-clyde/icon_clyde_black_RGB.png"
+        data-dark="/assets/images/discord-clyde/icon_clyde_white_RGB.png"
+        src="/assets/images/discord-clyde/icon_clyde_white_RGB.png"
         alt="Discord Dark"
         class="discord-icon-dark"
         id="discord-icon-dark"
@@ -54,10 +67,7 @@
     <!-- Header with Navigation -->
     <header>
       <nav>
-        <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="#commands">Commands</a></li>
-        </ul>
+        <p>.</p>
       </nav>
     </header>
 
@@ -66,15 +76,7 @@
       <h2>Commands</h2>
       <p>Here you can find a list of all the commands available in EverAll.</p>
       <ul>
-        <li><strong>/alert</strong> - Get the latest trading alerts.</li>
-        <li><strong>/follow [trader]</strong> - Follow a specific trader.</li>
-        <li>
-          <strong>/unfollow [trader]</strong> - Unfollow a specific trader.
-        </li>
-        <li>
-          <strong>/switch [trader]</strong> - Switch to a different trader.
-        </li>
-        <li><strong>/help</strong> - Get help with using EverAll.</li>
+        <p>WIP</p>
       </ul>
     </section>
 
@@ -94,6 +96,7 @@
       </div>
     </footer>
 
-    <script src="../js/script.js"></script>
+    <!-- Link to Root JS -->
+    <script src="/js/script.js"></script>
   </body>
 </html>
