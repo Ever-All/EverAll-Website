@@ -76,8 +76,6 @@ body {
 header {
   text-align: center;
   padding: 20px;
-  padding-left: 100px; /* Default left padding */
-  padding-right: 100px; /* Default right padding */
   background: var(--header-background);
   color: var(--text-color);
 }
@@ -111,8 +109,6 @@ nav a {
 #about {
   text-align: center;
   padding: 50px 20px;
-  padding-left: 100px; /* Default left padding */
-  padding-right: 100px; /* Default right padding */
   background: var(--about-background);
   color: var(--text-color);
 }
@@ -132,8 +128,6 @@ nav a {
 #features {
   text-align: center;
   padding: 50px 20px;
-  padding-left: 75px; /* Default left padding */
-  padding-right: 75px; /* Default right padding */
   background: var(--features-background);
   color: var(--text-color);
 }
@@ -321,15 +315,10 @@ footer .social-links a:hover {
     width: 32px;
   }
 
-  header {
-    padding-left: 10px; /* Mobile left padding */
-    padding-right: 10px; /* Mobile right padding */
-  }
-  #about {
-    padding-left: 10px; /* Mobile left padding */
-    padding-right: 10px; /* Mobile right padding */
-  }
-  #features {
+  header,
+  #about,
+  #features,
+  #contact {
     padding-left: 10px; /* Mobile left padding */
     padding-right: 10px; /* Mobile right padding */
   }
@@ -343,6 +332,14 @@ footer .social-links a:hover {
   #discord-toggle img {
     height: 64px;
     width: 64px;
+  }
+
+  header,
+  #about,
+  #features,
+  #contact {
+    padding-left: 100px; /* Desktop left padding */
+    padding-right: 100px; /* Desktop right padding */
   }
 }
 
