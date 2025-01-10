@@ -76,6 +76,8 @@ body {
 header {
   text-align: center;
   padding: 20px;
+  padding-left: 100px; /* Set your desired left padding */
+  padding-right: 100px; /* Set your desired right padding */
   background: var(--header-background);
   color: var(--text-color);
 }
@@ -87,7 +89,7 @@ nav ul {
 
 nav ul li {
   display: inline;
-  margin: 0 30px;
+  margin: 0 15px;
 }
 
 nav a {
@@ -109,6 +111,8 @@ nav a {
 #about {
   text-align: center;
   padding: 50px 20px;
+  padding-left: 100px; /* Set your desired left padding */
+  padding-right: 100px; /* Set your desired right padding */
   background: var(--about-background);
   color: var(--text-color);
 }
@@ -128,6 +132,8 @@ nav a {
 #features {
   text-align: center;
   padding: 50px 20px;
+  padding-left: 75px; /* Set your desired left padding */
+  padding-right: 75px; /* Set your desired right padding */
   background: var(--features-background);
   color: var(--text-color);
 }
