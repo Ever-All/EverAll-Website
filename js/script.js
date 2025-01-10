@@ -36,8 +36,9 @@ const updateImagesForTheme = (theme) => {
 };
 
 // Default to dark mode
-htmlElement.setAttribute("data-theme", "dark");
-updateImagesForTheme("dark"); // Set the images to dark mode
+const savedTheme = localStorage.getItem("theme") || "dark";
+htmlElement.setAttribute("data-theme", savedTheme);
+updateImagesForTheme(savedTheme); // Set the images to the saved theme
 
 // Toggle between light and dark mode
 themeToggleButton.addEventListener("click", () => {
@@ -46,6 +47,7 @@ themeToggleButton.addEventListener("click", () => {
 
   htmlElement.setAttribute("data-theme", newTheme);
   updateImagesForTheme(newTheme); // Update images for the new theme
+  localStorage.setItem("theme", newTheme); // Save the new theme
 });
 
 // Handle scroll event to toggle 'scrolling' class on the body

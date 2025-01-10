@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Commands - EverAll</title>
+
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" aria-label="Toggle Dark Mode">
+      <img
+        data-light="../assets/images/Transparent Black Full Circle.png"
+        data-dark="../assets/images/Transparent White Full Circle.png"
+        src="../assets/images/Transparent Black Full Circle.png"
+        alt="Light Mode"
+        class="icon-light"
+        id="icon-light"
+      />
+    </button>
+
+    <!-- Discord Icon Toggle Button -->
+    <a
+      href="https://discord.gg/pWpSpneeUe"
+      target="_blank"
+      id="discord-toggle"
+      aria-label="Discord"
+    >
+      <img
+        data-light="../assets/images/discord-clyde/icon_clyde_black_RGB.png"
+        data-dark="../assets/images/discord-clyde/icon_clyde_white_RGB.png"
+        src="../assets/images/discord-clyde/icon_clyde_black_RGB.png"
+        alt="Discord Light"
+        class="discord-icon-light"
+        id="discord-icon-light"
+      />
+      <img
+        data-light="../assets/images/discord-clyde/icon_clyde_black_RGB.png"
+        data-dark="../assets/images/discord-clyde/icon_clyde_white_RGB.png"
+        src="../assets/images/discord-clyde/icon_clyde_white_RGB.png"
+        alt="Discord Dark"
+        class="discord-icon-dark"
+        id="discord-icon-dark"
+        disabled
+      />
+    </a>
+
+    <!-- Header with Navigation -->
+    <header>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="#commands">Commands</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Commands Section -->
+    <section id="commands">
+      <h2>Commands</h2>
+      <p>Here you can find a list of all the commands available in EverAll.</p>
+      <ul>
+        <li><strong>/alert</strong> - Get the latest trading alerts.</li>
+        <li><strong>/follow [trader]</strong> - Follow a specific trader.</li>
+        <li>
+          <strong>/unfollow [trader]</strong> - Unfollow a specific trader.
+        </li>
+        <li>
+          <strong>/switch [trader]</strong> - Switch to a different trader.
+        </li>
+        <li><strong>/help</strong> - Get help with using EverAll.</li>
+      </ul>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+      <p>&copy; 2025 EverAll. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://info.ever-all.us/policy-and-terms/terms-of-service"
+          >Terms of Service</a
+        >
+        |
+        <a href="https://info.ever-all.us/policy-and-terms/privacy-policy"
+          >Privacy Policy</a
+        >
+        |
+        <a href="https://discord.gg/pWpSpneeUe" target="_blank">Discord</a>
+      </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+  </body>
+</html>
