@@ -52,7 +52,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%; /* Stretch to cover the entire background */
-  z-index: 1; /* Ensure image is above the header background */
+  z-index: 100; /* Ensure image is above the header background */
   pointer-events: none; /* Make the gradient image click-through */
   transform: translateY(0); /* Initial transform */
   display: block; /* Ensure the gradient image is visible */
@@ -355,7 +355,7 @@ footer .social-links a:hover {
   .gradient-image {
     top: var(--layered-image-y-offset, -175px); /* Higher starting position */
     opacity: var(--layered-image-opacity);
-    z-index: 1; /* Ensure gradient image is below the sections */
+    z-index: 100; /* Ensure gradient image is below the sections */
     height: 125vh; /* Stretch to cover the entire viewport height */
     overflow-y: hidden;
     overflow-x: hidden;
@@ -403,7 +403,7 @@ footer .social-links a:hover {
   .gradient-image {
     top: var(--layered-image-y-offset, -175px); /* Higher starting position */
     opacity: var(--layered-image-opacity);
-    z-index: 1; /* Ensure gradient image is below the sections */
+    z-index: 100; /* Ensure gradient image is below the sections */
     width: 125vw; /* Stretch to cover the entire viewport width */
     overflow-y: hidden;
     overflow-x: hidden;
