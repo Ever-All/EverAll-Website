@@ -83,6 +83,7 @@ body {
   pointer-events: none; /* Make the layered image click-through */
   transform: translateY(0); /* Initial transform */
   transition: transform 0.1s ease-out; /* Smooth transition for parallax effect */
+  display: block; /* Ensure the layered image is visible */
 }
 
 .layered-image img {
@@ -381,7 +382,7 @@ footer .social-links a:hover {
   }
 
   header {
-    z-index: -1; /* Ensure sections are above the layered image */
+    z-index: 0; /* Ensure sections are above the layered image */
   }
   #about,
   #features,
@@ -392,8 +393,10 @@ footer .social-links a:hover {
     z-index: 3; /* Ensure sections are above the layered image */
   }
 
+  /* Layered Image */
   .layered-image {
-    z-index: 0; /* Ensure layered image is below the sections */
+    z-index: 1; /* Ensure layered image is below the sections */
+    display: block; /* Show the layered image on mobile */
   }
 }
 
@@ -406,7 +409,9 @@ footer .social-links a:hover {
     height: 64px;
     width: 64px;
   }
-
+  header {
+    z-index: 0; /* Ensure sections are above the layered image */
+  }
   #about,
   #features,
   #contact,
@@ -416,6 +421,12 @@ footer .social-links a:hover {
     padding-right: 100px; /* Desktop right padding */
     position: relative;
     z-index: 2; /* Ensure sections are above the layered image */
+  }
+
+  /* Layered Image */
+  .layered-image {
+    z-index: 1; /* Ensure layered image is below the sections */
+    display: block; /* Show the layered image on desktop */
   }
 }
 

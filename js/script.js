@@ -72,9 +72,12 @@ window.addEventListener("scroll", () => {
 
 // Parallax effect for the layered image
 const layeredImage = document.querySelector(".layered-image");
+const aboutSection = document.getElementById("about");
 window.addEventListener("scroll", () => {
   const scrollPosition = window.scrollY;
-  layeredImage.style.transform = `translateY(${scrollPosition * 0.5}px)`; // Adjust the multiplier for desired parallax effect
+  const aboutSectionTop = aboutSection.offsetTop;
+  const parallaxOffset = Math.max(0, scrollPosition - aboutSectionTop);
+  layeredImage.style.transform = `translateY(${parallaxOffset * 0.5}px)`; // Adjust the multiplier for desired parallax effect
 });
 
 // Limit scrolling past the footer
