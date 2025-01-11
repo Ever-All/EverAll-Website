@@ -79,24 +79,24 @@ body {
 
 .vignette-left,
 .vignette-right {
-  content: "";
-  width: 50%;
-  height: 100%;
-  background: url("path/to/vignette-image.jpg") no-repeat;
-  background-size: 200% 100%;
-  position: fixed;
-  top: 0;
-  z-index: 1; /* Ensure vignette is below the sections */
+  position: fixed; /* Stay in place */
+  height: 100vh; /* Full height of the viewport */
+  width: 200px; /* Fixed width to prevent overlap */
+  pointer-events: none; /* Prevent interaction blocking */
+  z-index: 99; /* Ensure they stay above content but below UI elements */
+  bottom: 0; /* Anchor to the bottom */
 }
 
 .vignette-left {
   left: 0;
-  background-position: left;
+  background: url("path/to/vignette-image.jpg") no-repeat left;
+  background-size: cover;
 }
 
 .vignette-right {
   right: 0;
-  background-position: right;
+  background: url("path/to/vignette-image.jpg") no-repeat right;
+  background-size: cover;
 }
 
 /* Header ---------------------------*/
@@ -389,7 +389,7 @@ footer .social-links a:hover {
     left: 0; /* Anchored to the left */
     opacity: var(--layered-image-opacity);
     z-index: 100; /* Ensure gradient image is below the sections */
-    height: 125vh; /* Stretch to cover the entire viewport height */
+    height: 4269px; /* Stretch to cover the entire viewport height */
     overflow-y: hidden;
     overflow-x: hidden;
     display: block; /* Show the gradient image on mobile */
@@ -397,11 +397,6 @@ footer .social-links a:hover {
     position: absolute;
     object-fit: cover;
     transform-origin: top left; /* Anchor rotation from the top-left corner */
-  }
-
-  .vignette-left,
-  .vignette-right {
-    display: none; /* Hide vignette on mobile */
   }
 }
 

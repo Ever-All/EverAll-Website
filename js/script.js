@@ -115,20 +115,6 @@ function applyStyles() {
       }, 100);
     });
 
-    // Parallax effect for the gradient image
-    const gradientImage = document.querySelector(".gradient-image");
-    const aboutSection = document.getElementById("about");
-    if (aboutSection) {
-      window.addEventListener("scroll", () => {
-        const scrollPosition = window.scrollY;
-        const aboutSectionTop = aboutSection.offsetTop;
-        const parallaxOffset = Math.max(0, scrollPosition - aboutSectionTop);
-        gradientImage.style.transform = `translateY(${parallaxOffset * -20}px)`; // Adjust the multiplier for desired parallax effect
-      });
-    } else {
-      console.log("aboutSection not found");
-    }
-
     // Limit scrolling past the footer
     window.addEventListener("scroll", () => {
       const footer = document.querySelector("footer");
