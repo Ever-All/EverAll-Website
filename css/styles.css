@@ -398,8 +398,13 @@ footer .social-links a:hover {
   /* Layered Image */
   .layered-image {
     z-index: 1; /* Ensure layered image is below the sections */
-    height: 100vh; /* Stretch to cover the entire viewport height */
+    height: 125vh; /* Stretch to cover the entire viewport height */
+    overflow-y: hidden;
+    overflow-x: hidden;
     display: block; /* Show the layered image on mobile */
+    perspective: 10px;
+    position: absolute;
+    object-fit: cover;
   }
 }
 
@@ -429,8 +434,13 @@ footer .social-links a:hover {
   /* Layered Image */
   .layered-image {
     z-index: 1; /* Ensure layered image is below the sections */
-    width: 100vw; /* Stretch to cover the entire viewport width */
+    width: 125vw; /* Stretch to cover the entire viewport width */
+    overflow-y: hidden;
+    overflow-x: hidden;
     display: block; /* Show the layered image on desktop */
+    perspective: 10px;
+    position: absolute;
+    object-fit: cover;
   }
 }
 
