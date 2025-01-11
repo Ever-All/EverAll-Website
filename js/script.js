@@ -1,25 +1,29 @@
-// Function to load external components (buttons and footer)
+// Function to load external components (buttons, footer, and favicons)
 async function loadComponents() {
   try {
     // Fetch the buttons HTML from the external file
     const buttons = await fetch("/html/buttons.html").then((res) => res.text());
     // Fetch the footer HTML from the external file
     const footer = await fetch("/html/footer.html").then((res) => res.text());
+    // Fetch the favicons HTML from the external file
+    const favicons = await fetch("/html/favicons.html").then((res) =>
+      res.text()
+    );
 
     // Insert the fetched HTML into the respective placeholders
     document.getElementById("buttons-placeholder").innerHTML = buttons;
     document.getElementById("footer-placeholder").innerHTML = footer;
+    document.getElementById("favicons-placeholder").innerHTML = favicons;
 
     // Force re-rendering by appending styles again after a delay
-    setTimeout(() => {
-      const stylesheet = document.createElement("link");
-      stylesheet.rel = "stylesheet";
-      stylesheet.href = "/css/styles.css";
-      document.head.appendChild(stylesheet);
 
-      // Ensure elements are available before applying styles
-      applyStyles();
-    }, 100);
+    const stylesheet = document.createElement("link");
+    stylesheet.rel = "stylesheet";
+    stylesheet.href = "/css/styles.css";
+    document.head.appendChild(stylesheet);
+
+    // Ensure elements are available before applying styles
+    applyStyles();
   } catch (error) {
     console.error("Error loading components:", error);
   }
@@ -32,7 +36,11 @@ function applyStyles() {
     const homeBtn = document.getElementById("home-btn");
     if (homeBtn) {
       homeBtn.addEventListener("click", () => {
-        window.location.href = "/"; // Redirect to the homepage
+        if (window.location.pathname === "/") {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+          window.location.href = "/"; // Redirect to the homepage
+        }
       });
     } else {
       console.log("homeBtn not found");
