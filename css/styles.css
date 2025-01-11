@@ -91,6 +91,10 @@ body {
   opacity: 0.5; /* Adjust opacity as needed */
 }
 
+.layered-image.inverted {
+  transform: scaleY(-1); /* Invert the Y-axis */
+}
+
 /* Header */
 header {
   text-align: center;
@@ -98,7 +102,7 @@ header {
   background: var(--header-background);
   color: var(--text-color);
   position: relative;
-  z-index: 0; /* Ensure header text and navigation links are above the layered image */
+  z-index: 3; /* Ensure header text and navigation links are above the layered image */
 }
 
 nav ul {
@@ -376,13 +380,20 @@ footer .social-links a:hover {
     width: 32px;
   }
 
-  header,
+  header {
+    z-index: -1; /* Ensure sections are above the layered image */
+  }
   #about,
   #features,
   #contact,
   #commands {
     padding-left: 10px; /* Mobile left padding */
     padding-right: 10px; /* Mobile right padding */
+    z-index: 3; /* Ensure sections are above the layered image */
+  }
+
+  .layered-image {
+    z-index: 0; /* Ensure layered image is below the sections */
   }
 }
 
