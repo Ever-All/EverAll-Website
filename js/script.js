@@ -69,3 +69,21 @@ window.addEventListener("scroll", () => {
     document.body.classList.remove("scrolling");
   }, 300);
 });
+
+// Parallax effect for the layered image
+const layeredImage = document.querySelector(".layered-image");
+window.addEventListener("scroll", () => {
+  const scrollPosition = window.scrollY;
+  layeredImage.style.transform = `translateY(${scrollPosition * 0.5}px)`; // Adjust the multiplier for desired parallax effect
+});
+
+// Limit scrolling past the footer
+window.addEventListener("scroll", () => {
+  const footer = document.querySelector("footer");
+  const footerRect = footer.getBoundingClientRect();
+  const viewportHeight = window.innerHeight;
+
+  if (footerRect.bottom <= viewportHeight) {
+    window.scrollTo(0, document.body.scrollHeight - viewportHeight);
+  }
+});

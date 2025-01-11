@@ -6,6 +6,7 @@ body {
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
   text-align: center; /* Center all text */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Home Button */
@@ -72,12 +73,32 @@ body {
   display: block;
 }
 
+/* Layered Image */
+.layered-image {
+  position: absolute; /* Change to absolute to keep it in the background */
+  top: -50px; /* Higher starting position */
+  left: 0;
+  width: 100%;
+  z-index: 1; /* Ensure image is above the header background */
+  pointer-events: none; /* Make the layered image click-through */
+  transform: translateY(0); /* Initial transform */
+  transition: transform 0.1s ease-out; /* Smooth transition for parallax effect */
+}
+
+.layered-image img {
+  width: 100%;
+  height: auto;
+  opacity: 0.5; /* Adjust opacity as needed */
+}
+
 /* Header */
 header {
   text-align: center;
   padding: 20px;
   background: var(--header-background);
   color: var(--text-color);
+  position: relative;
+  z-index: 0; /* Ensure header text and navigation links are above the layered image */
 }
 
 nav ul {
@@ -94,6 +115,8 @@ nav a {
   text-decoration: none;
   color: var(--link-color);
   font-weight: bold;
+  position: relative;
+  z-index: 4; /* Ensure navigation links are above the layered image */
 }
 
 /* Hero Section */
@@ -103,6 +126,8 @@ nav a {
   background: var(--hero-background);
   color: var(--text-color);
   transition: background-color 0.3s ease;
+  position: relative;
+  z-index: 3; /* Ensure header text is above the layered image */
 }
 
 /* About Section */
@@ -111,6 +136,8 @@ nav a {
   padding: 50px 20px;
   background: var(--about-background);
   color: var(--text-color);
+  position: relative;
+  z-index: 1; /* Ensure about section is below the layered image */
 }
 
 #about h2 {
@@ -130,6 +157,8 @@ nav a {
   padding: 50px 20px;
   background: var(--features-background);
   color: var(--text-color);
+  position: relative;
+  z-index: 2; /* Ensure features section is above the layered image */
 }
 
 #features h2 {
@@ -163,6 +192,8 @@ nav a {
   color: var(--text-color);
   text-align: center;
   padding: 50px 20px;
+  position: relative;
+  z-index: 2; /* Ensure contact section is above the layered image */
 }
 
 #contact h2 {
@@ -203,6 +234,8 @@ footer {
   padding: 20px;
   background-color: var(--footer-background);
   color: var(--text-color);
+  position: relative;
+  z-index: 2; /* Ensure footer is above the layered image */
 }
 
 footer .social-links {
@@ -242,8 +275,8 @@ html[data-theme="light"] {
 html[data-theme="dark"] {
   --background-color: #121212;
   --text-color: #fff;
-  --header-background: #9c7aa0;
-  --hero-background: #9c7aa0;
+  --header-background: #783380;
+  --hero-background: #783380;
   --about-background: #111;
   --features-background: #333;
   --feature-card-background: #222;
@@ -287,6 +320,8 @@ footer,
 
 nav a {
   color: var(--text-color);
+  position: relative;
+  z-index: 4; /* Ensure navigation links are above the layered image */
 }
 footer .social-links a {
   color: var(--link-color);
@@ -334,12 +369,14 @@ footer .social-links a:hover {
     width: 64px;
   }
 
-  header,
   #about,
   #features,
-  #contact {
+  #contact,
+  footer {
     padding-left: 100px; /* Desktop left padding */
     padding-right: 100px; /* Desktop right padding */
+    position: relative;
+    z-index: 2; /* Ensure sections are above the layered image */
   }
 }
 
@@ -348,6 +385,6 @@ img {
   transition: opacity 0.1s ease-in-out;
 }
 
-body.scrolling img {
+body.scrolling img:not(.layered-image img) {
   opacity: 0.1;
 }
