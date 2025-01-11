@@ -76,7 +76,7 @@ body {
 /* Layered Image */
 .layered-image {
   position: absolute; /* Change to absolute to keep it in the background */
-  top: -50px; /* Higher starting position */
+  top: -175px; /* Higher starting position */
   left: 0;
   width: 100%;
   z-index: 1; /* Ensure image is above the header background */
@@ -254,6 +254,27 @@ footer .social-links a:hover {
   color: var(--link-hover-color);
 }
 
+/* Commands Section */
+#commands {
+  text-align: center;
+  padding: 50px 20px;
+  background: var(--commands-background);
+  color: var(--text-color);
+  position: relative;
+  z-index: 2; /* Ensure commands section is above the layered image */
+}
+
+#commands h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+#commands p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
 /* Default Light Theme */
 html[data-theme="light"] {
   --background-color: #fff;
@@ -265,6 +286,7 @@ html[data-theme="light"] {
   --feature-card-background: #fff;
   --contact-background: #f0f0f0;
   --footer-background: #e0e0e0;
+  --commands-background: #f0f0f0;
   --button-background: #9c7aa0;
   --button-hover-background: #76527a;
   --link-color: #9c7aa0;
@@ -282,6 +304,7 @@ html[data-theme="dark"] {
   --feature-card-background: #222;
   --contact-background: #111;
   --footer-background: #121212;
+  --commands-background: #111;
   --button-background: #9c7aa0;
   --button-hover-background: #76527a;
   --link-color: #9c7aa0;
@@ -303,6 +326,9 @@ header,
   color: var(--text-color);
 }
 #contact {
+  color: var(--text-color);
+}
+#commands {
   color: var(--text-color);
 }
 footer,
@@ -353,7 +379,8 @@ footer .social-links a:hover {
   header,
   #about,
   #features,
-  #contact {
+  #contact,
+  #commands {
     padding-left: 10px; /* Mobile left padding */
     padding-right: 10px; /* Mobile right padding */
   }
@@ -372,6 +399,7 @@ footer .social-links a:hover {
   #about,
   #features,
   #contact,
+  #commands,
   footer {
     padding-left: 100px; /* Desktop left padding */
     padding-right: 100px; /* Desktop right padding */
