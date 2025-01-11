@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Pages - EverAll</title>
+    <title>Info - EverAll</title>
 
     <!-- Link to Root CSS -->
     <link rel="stylesheet" href="/css/styles.css" />
@@ -28,68 +28,29 @@
     />
   </head>
   <body>
-    <!-- Theme Toggle Button -->
-    <button id="theme-toggle" aria-label="Toggle Dark Mode">
-      <img
-        data-light="/assets/images/theme-but/lightMode.png"
-        data-dark="/assets/images/theme-but/darkMode.png"
-        src="/assets/images/theme-but/darkMode.png"
-        alt="Light Mode"
-        class="icon-light"
-        id="icon-light"
-      />
-    </button>
+    <!-- Buttons Section -->
+    <div id="buttons-placeholder" style="display: none"></div>
 
-    <!-- Home Button -->
-    <button id="home-btn" aria-label="Home">
-      <img
-        data-light="/assets/images/home-but/logoDark.png"
-        data-dark="/assets/images/home-but/logoLight.png"
-        src="/assets/images/home-but/logoDark.png"
-        alt="Home"
-        class="icon-home"
-        id="icon-home"
-      />
-    </button>
-
-    <!-- Discord Icon Toggle Button -->
-    <a
-      href="https://discord.gg/pWpSpneeUe"
-      target="_blank"
-      id="discord-btn"
-      aria-label="Discord"
-    >
-      <img
-        data-light="/assets/images/discord-clyde/icon_clyde_black_RGB.png"
-        data-dark="/assets/images/discord-clyde/icon_clyde_white_RGB.png"
-        src="/assets/images/discord-clyde/icon_clyde_black_RGB.png"
-        alt="Discord Light"
-        class="discord-icon-light"
-        id="discord-icon-light"
-      />
-      <img
-        data-light="/assets/images/discord-clyde/icon_clyde_black_RGB.png"
-        data-dark="/assets/images/discord-clyde/icon_clyde_white_RGB.png"
-        src="/assets/images/discord-clyde/icon_clyde_white_RGB.png"
-        alt="Discord Dark"
-        class="discord-icon-dark"
-        id="discord-icon-dark"
-        disabled
-      />
-    </a>
-
-    <!-- Layered Image -->
-    <div class="layered-image">
-      <img src="/assets/images/effects/Vignette.png" alt="Layered Image" />
+    <!-- Gradient Image -->
+    <div class="gradient-image">
+      <img src="/assets/images/effects/Vignette.png" alt="Gradient Image" />
     </div>
 
     <!-- Header with Navigation -->
-    <header>
-      <h2>Pages</h2>
+    <header class="header">
+      <h2>Info</h2>
+      <nav>
+        <ul>
+          <li>
+            <a href="https://info.ever-all.us/bot-info/commands">Commands</a>
+          </li>
+          <li><a href="/">Patch Notes</a></li>
+        </ul>
+      </nav>
     </header>
 
     <!-- Commands Section -->
-    <section id="commands">
+    <section id="pages-main">
       <ul>
         <p>WIP</p>
         <p>Coming Soon</p>
@@ -97,20 +58,7 @@
     </section>
 
     <!-- Footer Section -->
-    <footer>
-      <p>&copy; 2025 EverAll. All rights reserved.</p>
-      <div class="social-links">
-        <a href="https://info.ever-all.us/policy-and-terms/terms-of-service"
-          >Terms of Service</a
-        >
-        |
-        <a href="https://info.ever-all.us/policy-and-terms/privacy-policy"
-          >Privacy Policy</a
-        >
-        |
-        <a href="https://discord.gg/pWpSpneeUe" target="_blank">Discord</a>
-      </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
     <!-- Link to Root JS -->
     <script src="/js/script.js"></script>

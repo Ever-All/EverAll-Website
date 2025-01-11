@@ -28,98 +28,34 @@
     />
   </head>
   <body>
-    <!-- Theme Toggle Button -->
-    <button id="theme-toggle" aria-label="Toggle Dark Mode">
-      <img
-        data-light="/assets/images/theme-but/lightMode.png"
-        data-dark="/assets/images/theme-but/darkMode.png"
-        src="/assets/images/theme-but/darkMode.png"
-        alt="Light Mode"
-        class="icon-light"
-        id="icon-light"
-      />
-    </button>
+    <!-- Buttons Section -->
+    <div id="buttons-placeholder" style="display: none"></div>
 
-    <!-- Home Button -->
-    <button id="home-btn" aria-label="Home">
-      <img
-        data-light="/assets/images/home-but/logoDark.png"
-        data-dark="/assets/images/home-but/logoLight.png"
-        src="/assets/images/home-but/logoDark.png"
-        alt="Home"
-        class="icon-home"
-        id="icon-home"
-      />
-    </button>
-
-    <!-- Discord Icon Toggle Button -->
-    <a
-      href="https://discord.gg/pWpSpneeUe"
-      target="_blank"
-      id="discord-btn"
-      aria-label="Discord"
-    >
-      <img
-        data-light="/assets/images/discord-clyde/icon_clyde_black_RGB.png"
-        data-dark="/assets/images/discord-clyde/icon_clyde_white_RGB.png"
-        src="/assets/images/discord-clyde/icon_clyde_black_RGB.png"
-        alt="Discord Light"
-        class="discord-icon-light"
-        id="discord-icon-light"
-      />
-      <img
-        data-light="/assets/images/discord-clyde/icon_clyde_black_RGB.png"
-        data-dark="/assets/images/discord-clyde/icon_clyde_white_RGB.png"
-        src="/assets/images/discord-clyde/icon_clyde_white_RGB.png"
-        alt="Discord Dark"
-        class="discord-icon-dark"
-        id="discord-icon-dark"
-        disabled
-      />
-    </a>
-
-    <!-- Layered Image -->
-    <div class="layered-image">
-      <img src="/assets/images/effects/Vignette.png" alt="Layered Image" />
+    <!-- Gradient Image -->
+    <div class="gradient-image">
+      <img src="/assets/images/effects/Vignette.png" alt="Gradient Image" />
     </div>
 
     <!-- Header with Navigation -->
-    <header>
+    <header class="header">
       <h2>Commands</h2>
     </header>
 
     <!-- Commands Section -->
-    <section id="commands">
+    <section id="commands-main">
       <ul>
         <p>
           Here you can find a list of all the commands available in EverAll.
         </p>
         <p>
           Legacy Site :
-          <a
-            href="https://info.ever-all.us/bot-info/commands"
-            style="color: var(--link-color)"
-            >Commands</a
-          >
+          <a href="https://info.ever-all.us/bot-info/commands">Commands</a>
         </p>
       </ul>
     </section>
 
     <!-- Footer Section -->
-    <footer>
-      <p>&copy; 2025 EverAll. All rights reserved.</p>
-      <div class="social-links">
-        <a href="https://info.ever-all.us/policy-and-terms/terms-of-service"
-          >Terms of Service</a
-        >
-        |
-        <a href="https://info.ever-all.us/policy-and-terms/privacy-policy"
-          >Privacy Policy</a
-        >
-        |
-        <a href="https://discord.gg/pWpSpneeUe" target="_blank">Discord</a>
-      </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
     <!-- Link to Root JS -->
     <script src="/js/script.js"></script>

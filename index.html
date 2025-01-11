@@ -41,64 +41,17 @@
     />
   </head>
   <body>
-    <!-- Theme Toggle Button -->
-    <button id="theme-toggle" aria-label="Toggle Dark Mode">
-      <img
-        data-light="/assets/images/theme-but/lightMode.png"
-        data-dark="/assets/images/theme-but/darkMode.png"
-        src="/assets/images/theme-but/lightMode.png"
-        alt="Light Mode"
-        class="icon-light"
-        id="icon-light"
-      />
-    </button>
+    <!-- Buttons Section -->
+    <div id="buttons-placeholder" style="display: none"></div>
 
-    <!-- Home Button -->
-    <button id="home-btn" aria-label="Home">
-      <img
-        data-light="/assets/images/home-but/logoDark.png"
-        data-dark="/assets/images/home-but/logoLight.png"
-        src="/assets/images/home-but/logoDark.png"
-        alt="Home"
-        class="icon-home"
-        id="icon-home"
-      />
-    </button>
-
-    <!-- Discord Icon Toggle Button -->
-    <a
-      href="https://discord.gg/pWpSpneeUe"
-      target="_blank"
-      id="discord-btn"
-      aria-label="Discord"
-    >
-      <img
-        data-light="/assets/images/discord-clyde/icon_clyde_black_RGB.png"
-        data-dark="/assets/images/discord-clyde/icon_clyde_white_RGB.png"
-        src="/assets/images/discord-clyde/icon_clyde_black_RGB.png"
-        alt="Discord Light"
-        class="discord-icon-light"
-        id="discord-icon-light"
-      />
-      <img
-        data-light="/assets/images/discord-clyde/icon_clyde_black_RGB.png"
-        data-dark="/assets/images/discord-clyde/icon_clyde_white_RGB.png"
-        src="/assets/images/discord-clyde/icon_clyde_white_RGB.png"
-        alt="Discord Dark"
-        class="discord-icon-dark"
-        id="discord-icon-dark"
-        disabled
-      />
-    </a>
-
-    <!-- Layered Image -->
-    <div class="layered-image">
-      <img src="/assets/images/effects/Vignette.png" alt="Layered Image" />
+    <!-- Gradient Image -->
+    <div class="gradient-image">
+      <img src="/assets/images/effects/Vignette.png" alt="Gradient Image" />
     </div>
 
     <!-- Header with Hero Section -->
-    <header>
-      <div class="hero">
+    <header class="header">
+      <div class="home-hero">
         <h1>Welcome to EverAll</h1>
         <p>
           A bot built by traders, for traders. Delivering real-time options
@@ -107,16 +60,20 @@
       </div>
       <nav>
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="/pages/commands/">Commands</a></li>
+          <li><a href="#home-about">About</a></li>
+          <li>
+            <a href="#home-features">Features</a>
+          </li>
+          <li><a href="/pages/">Info</a></li>
+          <li>
+            <a href="#home-contact">Contact</a>
+          </li>
         </ul>
       </nav>
     </header>
 
     <!-- About Section -->
-    <section id="about">
+    <section id="home-about">
       <h2>About EverAll</h2>
       <p>
         EverAll is a unique platform designed to empower traders with the
@@ -128,31 +85,31 @@
     </section>
 
     <!-- Features Section -->
-    <section id="features">
+    <section id="home-features">
       <h2>Core Features</h2>
-      <div class="features-container">
-        <div class="feature-card">
+      <div class="home-features-container">
+        <div class="home-feature-card">
           <h3>Real-Time Alerts</h3>
           <p>
             Receive up-to-the-minute alerts for options trades from top traders
             across various markets.
           </p>
         </div>
-        <div class="feature-card">
+        <div class="home-feature-card">
           <h3>Follow Specific Traders</h3>
           <p>
             Follow your favorite traders and get personalized alerts based on
             their strategies and trades.
           </p>
         </div>
-        <div class="feature-card">
+        <div class="home-feature-card">
           <h3>Trader Payment System</h3>
           <p>
             Traders who apply to use EverAll can earn payment based on how many
             active followers they have watching their alerts.
           </p>
         </div>
-        <div class="feature-card">
+        <div class="home-feature-card">
           <h3>Flexible Trader Switching</h3>
           <p>
             Users can switch between up to five traders at a time, with the
@@ -163,7 +120,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="home-contact">
       <h2>Contact Us</h2>
       <p>
         If you have any questions or would like to learn more, feel free to
@@ -171,25 +128,14 @@
       </p>
       <p>
         Send an email to
-        <a href="mailto:contact@ever-all.us">contact@ever-all.us</a>
+        <a href="mailto:contact@ever-all.us" style="color: var(--link-color)"
+          >contact@ever-all.us</a
+        >
       </p>
     </section>
 
     <!-- Footer Section -->
-    <footer>
-      <p>&copy; 2025 EverAll. All rights reserved.</p>
-      <div class="social-links">
-        <a href="https://info.ever-all.us/policy-and-terms/terms-of-service"
-          >Terms of Service</a
-        >
-        |
-        <a href="https://info.ever-all.us/policy-and-terms/privacy-policy"
-          >Privacy Policy</a
-        >
-        |
-        <a href="https://discord.gg/pWpSpneeUe" target="_blank">Discord</a>
-      </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
     <script src="/js/script.js"></script>
   </body>
