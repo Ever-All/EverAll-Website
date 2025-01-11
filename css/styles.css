@@ -298,6 +298,7 @@ html[data-theme="light"] {
   --button-hover-background: #76527a;
   --link-color: #9c7aa0;
   --link-hover-color: #805b85;
+  --header-text-z-index: 5; /* Ensure header text is above the layered image */
 }
 
 /* Dark Theme */
@@ -316,6 +317,7 @@ html[data-theme="dark"] {
   --button-hover-background: #76527a;
   --link-color: #9c7aa0;
   --link-hover-color: #805b85;
+  --header-text-z-index: 0; /* Ensure header text is below the layered image */
 }
 
 /* Apply Theme Colors */
@@ -384,7 +386,9 @@ footer .social-links a:hover {
   }
 
   header {
-    z-index: 0; /* Ensure sections are above the layered image */
+    z-index: var(
+      --header-text-z-index
+    ); /* Ensure sections are above the layered image */
   }
   #about,
   #features,
@@ -418,7 +422,9 @@ footer .social-links a:hover {
     width: 64px;
   }
   header {
-    z-index: 0; /* Ensure sections are above the layered image */
+    z-index: var(
+      --header-text-z-index
+    ); /* Ensure sections are above the layered image */
   }
   #about,
   #features,
