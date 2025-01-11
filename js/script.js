@@ -1,19 +1,14 @@
-// Function to load external components (buttons, footer, and favicons)
+// Function to load external components (buttons and footer)
 async function loadComponents() {
   try {
     // Fetch the buttons HTML from the external file
     const buttons = await fetch("/html/buttons.html").then((res) => res.text());
     // Fetch the footer HTML from the external file
     const footer = await fetch("/html/footer.html").then((res) => res.text());
-    // Fetch the favicons HTML from the external file
-    const favicons = await fetch("/html/favicons.html").then((res) =>
-      res.text()
-    );
 
     // Insert the fetched HTML into the respective placeholders
     document.getElementById("buttons-placeholder").innerHTML = buttons;
     document.getElementById("footer-placeholder").innerHTML = footer;
-    document.getElementById("favicons-placeholder").innerHTML = favicons;
 
     // Force re-rendering by appending styles again after a delay
     requestAnimationFrame(() => {
@@ -79,17 +74,6 @@ function applyStyles() {
         }
       });
 
-      // Update favicon based on theme
-      const faviconLight = document.getElementById("favicon-light");
-      const faviconDark = document.getElementById("favicon-dark");
-      if (theme === "dark") {
-        faviconLight.setAttribute("disabled", "true");
-        faviconDark.removeAttribute("disabled");
-      } else {
-        faviconLight.removeAttribute("disabled");
-        faviconDark.setAttribute("disabled", "true");
-      }
-
       // Update Discord button based on theme
       const discordIconLight = document.getElementById("discord-icon-light");
       const discordIconDark = document.getElementById("discord-icon-dark");
@@ -128,7 +112,7 @@ function applyStyles() {
       // Set a timeout to remove the class after scrolling stops
       isScrolling = setTimeout(() => {
         document.body.classList.remove("scrolling");
-      }, 300);
+      }, 100);
     });
 
     // Parallax effect for the gradient image
