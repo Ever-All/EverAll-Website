@@ -38,6 +38,7 @@ function applyStyles() {
       homeBtn.addEventListener("click", () => {
         if (window.location.pathname === "/") {
           window.scrollTo({ top: 0, behavior: "smooth" });
+          history.pushState(null, null, "/");
         } else {
           window.location.href = "/"; // Redirect to the homepage
         }
@@ -45,6 +46,23 @@ function applyStyles() {
     } else {
       console.log("homeBtn not found");
     }
+
+    // Smooth scrolling for anchor links without updating the URL
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent URL update
+
+        const targetId = this.getAttribute("href").substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      });
+    });
 
     // Dark mode toggle functionality
     const themeToggleBtn = document.getElementById("theme-toggle");
