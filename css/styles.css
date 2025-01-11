@@ -4,7 +4,6 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  transition: background-color 0.3s ease, color 0.3s ease;
   text-align: center; /* Center all text */
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
@@ -132,7 +131,6 @@ nav a {
   text-align: center;
   background: var(--hero-background);
   color: var(--text-color);
-  transition: background-color 0.3s ease;
   position: relative;
   z-index: 3; /* Ensure header text is above the layered image */
 }
@@ -254,7 +252,6 @@ footer .social-links a {
   text-decoration: none;
   font-weight: bold;
   margin: 0 5px;
-  transition: color 0.3s ease;
 }
 
 footer .social-links a:hover {
