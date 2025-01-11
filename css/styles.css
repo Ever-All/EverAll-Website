@@ -1,5 +1,6 @@
 /* Base Styles */
 body {
+  text-align: justify;
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
@@ -8,58 +9,52 @@ body {
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-/* Home Button */
-#home-button {
+/* Home Button ---------------------------*/
+#home-btn {
   background: none;
   border: none;
   padding: 10px;
   cursor: pointer;
   position: fixed;
-  top: 10px; /* Move to the top left */
-  left: 10px;
+  top: 0px;
+  left: 0px;
   z-index: 9999;
 }
 
-#home-button img {
+#home-btn img {
   object-fit: contain;
-  width: var(--discord-toggle-width, 75px); /* Smaller size */
-  height: var(--discord-toggle-height, 75px); /* Smaller size */
+  width: var(--hud-btn-size, 75px);
+  height: var(--hud-btn-size, 75px);
 }
 
-/* Theme Toggle Button */
+/* Theme Toggle Button ---------------------------*/
 #theme-toggle {
   background: none;
   border: none;
   padding: 10px;
   cursor: pointer;
   position: fixed;
-  top: 10px; /* Move to where the home button was */
-  right: 10px;
+  top: 5px;
+  right: 5px;
   z-index: 9999;
 }
 
-#theme-toggle img {
-  object-fit: contain;
-  width: calc(var(--discord-toggle-width, 32px) * 1.75); /* Larger size */
-  height: calc(var(--discord-toggle-height, 24px) * 1.75); /* Larger size */
-}
-
-/* Discord Button */
-#discord-toggle {
+/* Discord Button ---------------------------*/
+#discord-btn {
   background: none;
   border: none;
   padding: 10px;
   cursor: pointer;
   position: fixed;
-  bottom: 10px;
-  left: 10px;
+  bottom: 3px;
+  left: 3px;
   z-index: 9999;
 }
 
-#discord-toggle img {
+#discord-btn img {
   object-fit: contain;
-  width: var(--discord-toggle-width, 32px);
-  height: var(--discord-toggle-height, 24px);
+  width: var(--hud-btn-size, 32px);
+  height: var(--hud-btn-size, 24px);
 }
 
 .discord-icon-light,
@@ -72,7 +67,7 @@ body {
   display: block;
 }
 
-/* Layered Image */
+/* Layered Image ---------------------------*/
 .layered-image {
   position: absolute; /* Change to absolute to keep it in the background */
   top: var(--layered-image-y-offset, -175px); /* Higher starting position */
@@ -96,7 +91,7 @@ body {
   transform: scaleY(-1); /* Invert the Y-axis */
 }
 
-/* Header */
+/* Header ---------------------------*/
 header {
   text-align: center;
   padding: 20px;
@@ -124,7 +119,7 @@ nav a {
   z-index: 4; /* Ensure navigation links are above the layered image */
 }
 
-/* Hero Section */
+/* Hero Section ---------------------------*/
 .hero {
   padding: 50px;
   text-align: center;
@@ -134,7 +129,7 @@ nav a {
   z-index: 3; /* Ensure header text is above the layered image */
 }
 
-/* About Section */
+/* About Section ---------------------------*/
 #about {
   text-align: center;
   padding: 50px 20px;
@@ -155,7 +150,7 @@ nav a {
   font-size: 1.1rem;
 }
 
-/* Features Section */
+/* Features Section ---------------------------*/
 #features {
   text-align: center;
   padding: 50px 20px;
@@ -189,7 +184,7 @@ nav a {
   text-align: center;
 }
 
-/* Contact Section */
+/* Contact Section ---------------------------*/
 #contact {
   background: var(--contact-background);
   color: var (--text-color);
@@ -218,8 +213,8 @@ nav a {
   border-radius: 5px;
 }
 
-#contact-form button {
-  background: var(--button-background);
+#contact-form btn {
+  background: var(--btn-background);
   color: var(--text-color);
   border: none;
   padding: 10px;
@@ -227,11 +222,11 @@ nav a {
   cursor: pointer;
 }
 
-#contact-form button:hover {
-  background: var(--button-hover-background);
+#contact-form btn:hover {
+  background: var(--btn-hover-background);
 }
 
-/* Footer Section */
+/* Footer Section ---------------------------*/
 footer {
   text-align: center;
   padding: 20px;
@@ -256,7 +251,7 @@ footer .social-links a:hover {
   color: var(--link-hover-color);
 }
 
-/* Commands Section */
+/* Commands Section ---------------------------*/
 #commands {
   text-align: center;
   padding: 50px 20px;
@@ -277,7 +272,7 @@ footer .social-links a:hover {
   font-size: 1.1rem;
 }
 
-/* Default Light Theme */
+/* Light Theme ---------------------------*/
 html[data-theme="light"] {
   --background-color: #fff;
   --text-color: #000;
@@ -289,16 +284,20 @@ html[data-theme="light"] {
   --contact-background: #f0f0f0;
   --footer-background: #e0e0e0;
   --commands-background: #f0f0f0;
-  --button-background: #3f8c8f;
-  --button-hover-background: #69d4d8;
+  --btn-background: #3f8c8f;
+  --btn-hover-background: #69d4d8;
   --link-color: #3f8c8f;
   --link-hover-color: #69d4d8;
   --header-text-z-index: 0; /* Ensure header text is above the layered image */
   --layered-image-opacity: 0.5; /* Invert alpha for layered image */
   --layered-image-y-offset: 0px; /* Adjust Y offset for layered image */
+  --hud-btn-size: 75px;
+  --hud-btn-size-adjust-small: 0.4;
+  --hud-btn-size-adjust-med: 0.6;
+  --hud-btn-size-adjust-big: 1;
 }
 
-/* Dark Theme */
+/* Dark Theme ---------------------------*/
 html[data-theme="dark"] {
   --background-color: #121212;
   --text-color: #fff;
@@ -310,46 +309,31 @@ html[data-theme="dark"] {
   --contact-background: #111;
   --footer-background: #121212;
   --commands-background: #111;
-  --button-background: #9c7aa0;
-  --button-hover-background: #783380;
+  --btn-background: #9c7aa0;
+  --btn-hover-background: #783380;
   --link-color: #9c7aa0;
   --link-hover-color: #783380;
   --header-text-z-index: 0; /* Ensure header text is below the layered image */
   --layered-image-opacity: 0.6; /* Default alpha for layered image */
   --layered-image-y-offset: -175px; /* Default Y offset for layered image */
+  --hud-btn-size: 75px;
+  --hud-btn-size-adjust-small: 0.4;
+  --hud-btn-size-adjust-med: 0.6;
+  --hud-btn-size-adjust-big: 1;
 }
 
-/* Apply Theme Colors */
+/* Apply Theme Colors ---------------------------*/
 body {
   background-color: var(--background-color);
   color: var(--text-color);
 }
 
-header,
-.hero,
-#about {
-  color: var(--text-color);
-}
-#features {
-  color: var(--text-color);
-}
-#contact {
-  color: var(--text-color);
-}
-#commands {
-  color: var(--text-color);
-}
-footer,
-#contact-form button {
-  color: var(--text-color);
+#contact-form btn {
+  background: var(--btn-background);
 }
 
-#contact-form button {
-  background: var(--button-background);
-}
-
-#contact-form button:hover {
-  background: var(--button-hover-background);
+#contact-form btn:hover {
+  background: var(--btn-hover-background);
 }
 
 nav a {
@@ -373,16 +357,18 @@ footer .social-links a:hover {
   color: var(--link-hover-color);
 }
 
-/* Responsive Image Adjustments */
+/* Responsive Image Adjustments ---------------------------*/
+/* Mobile Mode ---------------------------*/
 @media screen and (max-width: 767px) {
-  /* Mobile Mode */
   #theme-toggle img {
-    height: 32px; /* Smaller size */
-    width: 32px; /* Smaller size */
+    object-fit: contain;
+    height: calc(var(--hud-btn-size) * var(--hud-btn-size-adjust-small));
+    width: calc(var(--hud-btn-size) * var(--hud-btn-size-adjust-small));
   }
-  #discord-toggle img {
-    height: 32px;
-    width: 32px;
+  #discord-btn img {
+    object-fit: contain;
+    height: calc(var(--hud-btn-size) * var(--hud-btn-size-adjust-small));
+    width: calc(var(--hud-btn-size) * var(--hud-btn-size-adjust-small));
   }
 
   header {
@@ -394,12 +380,12 @@ footer .social-links a:hover {
   #features,
   #contact,
   #commands {
-    padding-left: 10px; /* Mobile left padding */
-    padding-right: 10px; /* Mobile right padding */
+    padding-left: 50px; /* Mobile left padding */
+    padding-right: 50px; /* Mobile right padding */
     z-index: 3; /* Ensure sections are above the layered image */
   }
 
-  /* Layered Image */
+  /* Layered Image ---------------------------*/
   .layered-image {
     top: var(--layered-image-y-offset, -175px); /* Higher starting position */
     opacity: var(--layered-image-opacity);
@@ -414,15 +400,17 @@ footer .social-links a:hover {
   }
 }
 
+/* Desktop Mode ---------------------------*/
 @media screen and (min-width: 768px) {
-  /* Desktop Mode */
   #theme-toggle img {
-    height: 64px; /* Smaller size */
-    width: 64px; /* Smaller size */
+    object-fit: contain;
+    height: calc(var(--hud-btn-size) * var(--hud-btn-size-adjust-med));
+    width: calc(var(--hud-btn-size) * var(--hud-btn-size-adjust-med));
   }
-  #discord-toggle img {
-    height: 64px;
-    width: 64px;
+  #discord-btn img {
+    object-fit: contain;
+    height: calc(var(--hud-btn-size) * var(--hud-btn-size-adjust-small));
+    width: calc(var(--hud-btn-size) * var(--hud-btn-size-adjust-small));
   }
   header {
     z-index: var(
@@ -440,7 +428,7 @@ footer .social-links a:hover {
     z-index: 2; /* Ensure sections are above the layered image */
   }
 
-  /* Layered Image */
+  /* Layered Image ---------------------------*/
   .layered-image {
     top: var(--layered-image-y-offset, -175px); /* Higher starting position */
     opacity: var(--layered-image-opacity);

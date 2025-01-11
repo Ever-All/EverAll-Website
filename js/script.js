@@ -1,11 +1,11 @@
 // Home button functionality
-const homeButton = document.getElementById("home-button");
-homeButton.addEventListener("click", () => {
+const homeBtn = document.getElementById("home-btn");
+homeBtn.addEventListener("click", () => {
   window.location.href = "/"; // Redirect to the homepage
 });
 
 // Dark mode toggle functionality
-const themeToggleButton = document.getElementById("theme-toggle");
+const themeToggleBtn = document.getElementById("theme-toggle");
 const htmlElement = document.documentElement;
 const images = document.querySelectorAll("img"); // Select all images to update
 
@@ -47,7 +47,7 @@ htmlElement.setAttribute("data-theme", savedTheme);
 updateImagesForTheme(savedTheme); // Set the images to the saved theme
 
 // Toggle between light and dark mode
-themeToggleButton.addEventListener("click", () => {
+themeToggleBtn.addEventListener("click", () => {
   const currentTheme = htmlElement.getAttribute("data-theme");
   const newTheme = currentTheme === "light" ? "dark" : "light"; // Toggle theme
 
