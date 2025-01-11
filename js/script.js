@@ -77,7 +77,7 @@ window.addEventListener("scroll", () => {
   const scrollPosition = window.scrollY;
   const aboutSectionTop = aboutSection.offsetTop;
   const parallaxOffset = Math.max(0, scrollPosition - aboutSectionTop);
-  layeredImage.style.transform = `translateY(${parallaxOffset * 0.5}px)`; // Adjust the multiplier for desired parallax effect
+  layeredImage.style.transform = `translateY(${parallaxOffset * -20}px)`; // Adjust the multiplier for desired parallax effect
 });
 
 // Limit scrolling past the footer

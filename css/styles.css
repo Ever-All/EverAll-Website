@@ -1,4 +1,4 @@
-/* Base Styles (Unchanged) */
+/* Base Styles */
 body {
   font-family: "Roboto", sans-serif;
   margin: 0;
@@ -75,14 +75,13 @@ body {
 /* Layered Image */
 .layered-image {
   position: absolute; /* Change to absolute to keep it in the background */
-  top: -175px; /* Higher starting position */
+  top: var(--layered-image-y-offset, -175px); /* Higher starting position */
   left: 0;
   width: 100%;
   height: 100%; /* Stretch to cover the entire background */
   z-index: 1; /* Ensure image is above the header background */
   pointer-events: none; /* Make the layered image click-through */
   transform: translateY(0); /* Initial transform */
-  transition: transform 0.1s ease-out; /* Smooth transition for parallax effect */
   display: block; /* Ensure the layered image is visible */
 }
 
@@ -188,13 +187,12 @@ nav a {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   flex: 1 1 300px;
   text-align: center;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 /* Contact Section */
 #contact {
   background: var(--contact-background);
-  color: var(--text-color);
+  color: var (--text-color);
   text-align: center;
   padding: 50px 20px;
   position: relative;
@@ -296,7 +294,8 @@ html[data-theme="light"] {
   --link-color: #3f8c8f;
   --link-hover-color: #69d4d8;
   --header-text-z-index: 0; /* Ensure header text is above the layered image */
-  --layered-image-opacity: 0.3; /* Invert alpha for layered image */
+  --layered-image-opacity: 0.5; /* Invert alpha for layered image */
+  --layered-image-y-offset: 0px; /* Adjust Y offset for layered image */
 }
 
 /* Dark Theme */
@@ -317,6 +316,7 @@ html[data-theme="dark"] {
   --link-hover-color: #783380;
   --header-text-z-index: 0; /* Ensure header text is below the layered image */
   --layered-image-opacity: 0.6; /* Default alpha for layered image */
+  --layered-image-y-offset: -175px; /* Default Y offset for layered image */
 }
 
 /* Apply Theme Colors */
@@ -401,6 +401,8 @@ footer .social-links a:hover {
 
   /* Layered Image */
   .layered-image {
+    top: var(--layered-image-y-offset, -175px); /* Higher starting position */
+    opacity: var(--layered-image-opacity);
     z-index: 1; /* Ensure layered image is below the sections */
     height: 125vh; /* Stretch to cover the entire viewport height */
     overflow-y: hidden;
@@ -409,7 +411,6 @@ footer .social-links a:hover {
     perspective: 10px;
     position: absolute;
     object-fit: cover;
-    opacity: var(--layered-image-opacity);
   }
 }
 
@@ -441,6 +442,8 @@ footer .social-links a:hover {
 
   /* Layered Image */
   .layered-image {
+    top: var(--layered-image-y-offset, -175px); /* Higher starting position */
+    opacity: var(--layered-image-opacity);
     z-index: 1; /* Ensure layered image is below the sections */
     width: 125vw; /* Stretch to cover the entire viewport width */
     overflow-y: hidden;
@@ -449,7 +452,6 @@ footer .social-links a:hover {
     perspective: 10px;
     position: absolute;
     object-fit: cover;
-    opacity: var(--layered-image-opacity);
   }
 }
 
