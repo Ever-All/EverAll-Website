@@ -286,19 +286,19 @@ footer .social-links a:hover {
 html[data-theme="light"] {
   --background-color: #fff;
   --text-color: #000;
-  --header-background: #9c7aa0;
-  --hero-background: #9c7aa0;
+  --header-background: #69d4d8;
+  --hero-background: #69d4d8;
   --about-background: #f0f0f0;
   --features-background: #e0e0e0;
   --feature-card-background: #fff;
   --contact-background: #f0f0f0;
   --footer-background: #e0e0e0;
   --commands-background: #f0f0f0;
-  --button-background: #9c7aa0;
-  --button-hover-background: #76527a;
-  --link-color: #9c7aa0;
-  --link-hover-color: #805b85;
-  --header-text-z-index: 5; /* Ensure header text is above the layered image */
+  --button-background: #3f8c8f;
+  --button-hover-background: #69d4d8;
+  --link-color: #3f8c8f;
+  --link-hover-color: #3f8c8f;
+  --header-text-z-index: 0; /* Ensure header text is above the layered image */
 }
 
 /* Dark Theme */
@@ -314,9 +314,9 @@ html[data-theme="dark"] {
   --footer-background: #121212;
   --commands-background: #111;
   --button-background: #9c7aa0;
-  --button-hover-background: #76527a;
+  --button-hover-background: #783380;
   --link-color: #9c7aa0;
-  --link-hover-color: #805b85;
+  --link-hover-color: #783380;
   --header-text-z-index: 0; /* Ensure header text is below the layered image */
 }
 
