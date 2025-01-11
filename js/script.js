@@ -16,14 +16,15 @@ async function loadComponents() {
     document.getElementById("favicons-placeholder").innerHTML = favicons;
 
     // Force re-rendering by appending styles again after a delay
+    requestAnimationFrame(() => {
+      const stylesheet = document.createElement("link");
+      stylesheet.rel = "stylesheet";
+      stylesheet.href = "/css/styles.css";
+      document.head.appendChild(stylesheet);
 
-    const stylesheet = document.createElement("link");
-    stylesheet.rel = "stylesheet";
-    stylesheet.href = "/css/styles.css";
-    document.head.appendChild(stylesheet);
-
-    // Ensure elements are available before applying styles
-    applyStyles();
+      // Ensure elements are available before applying styles
+      applyStyles();
+    });
   } catch (error) {
     console.error("Error loading components:", error);
   }
