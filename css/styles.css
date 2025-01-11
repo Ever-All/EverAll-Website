@@ -52,11 +52,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%; /* Stretch to cover the entire background */
-  z-index: 100; /* Ensure image is above the header background */
   pointer-events: none; /* Make the gradient image click-through */
   transform: translateY(0); /* Initial transform */
   display: block; /* Ensure the gradient image is visible */
 }
+
 .gradient-image img {
   width: 100%;
   height: 100%; /* Stretch to cover the entire background */
@@ -65,6 +65,38 @@ body {
 }
 .gradient-image.inverted {
   transform: scaleY(-1); /* Invert the Y-axis */
+}
+
+/* Vignette Image ---------------------------*/
+.vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.vignette-left,
+.vignette-right {
+  content: "";
+  width: 50%;
+  height: 100%;
+  background: url("path/to/vignette-image.jpg") no-repeat;
+  background-size: 200% 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1; /* Ensure vignette is below the sections */
+}
+
+.vignette-left {
+  left: 0;
+  background-position: left;
+}
+
+.vignette-right {
+  right: 0;
+  background-position: right;
 }
 
 /* Header ---------------------------*/
@@ -353,7 +385,8 @@ footer .social-links a:hover {
 
   /* Gradient Image ---------------------------*/
   .gradient-image {
-    top: var(--layered-image-y-offset, -175px); /* Higher starting position */
+    top: 0; /* Anchored to the top */
+    left: 0; /* Anchored to the left */
     opacity: var(--layered-image-opacity);
     z-index: 100; /* Ensure gradient image is below the sections */
     height: 125vh; /* Stretch to cover the entire viewport height */
@@ -363,6 +396,12 @@ footer .social-links a:hover {
     perspective: 10px;
     position: absolute;
     object-fit: cover;
+    transform-origin: top left; /* Anchor rotation from the top-left corner */
+  }
+
+  .vignette-left,
+  .vignette-right {
+    display: none; /* Hide vignette on mobile */
   }
 }
 
@@ -401,16 +440,22 @@ footer .social-links a:hover {
 
   /* Gradient Image ---------------------------*/
   .gradient-image {
-    top: var(--layered-image-y-offset, -175px); /* Higher starting position */
-    opacity: var(--layered-image-opacity);
-    z-index: 100; /* Ensure gradient image is below the sections */
-    width: 125vw; /* Stretch to cover the entire viewport width */
-    overflow-y: hidden;
-    overflow-x: hidden;
-    display: block; /* Show the gradient image on desktop */
-    perspective: 10px;
-    position: absolute;
+    top: 0; /* Anchored to the top of the page */
+    left: 0; /* Anchored to the left of the page */
+    opacity: var(--layered-image-opacity, 1);
+    z-index: 100; /* Ensure the gradient image is below the sections */
+    position: fixed; /* Fixed to keep it in the viewport */
     object-fit: cover;
+    height: 100vh; /* Stretch to cover the entire viewport height */
+    overflow: hidden;
+    transform-origin: bottom left; /* Set the rotation anchor point to the bottom-left corner */
+    display: block; /* Show the gradient image on desktop */
+  }
+
+  .vignette-left,
+  .vignette-right {
+    display: block; /* Show vignette on desktop */
+    position: fixed; /* Stick to the edges of the screen */
   }
 }
 
