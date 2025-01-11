@@ -294,7 +294,7 @@ html[data-theme="light"] {
   --button-background: #3f8c8f;
   --button-hover-background: #69d4d8;
   --link-color: #3f8c8f;
-  --link-hover-color: #3f8c8f;
+  --link-hover-color: #69d4d8;
   --header-text-z-index: 0; /* Ensure header text is above the layered image */
   --layered-image-opacity: 0.3; /* Invert alpha for layered image */
 }
