@@ -19,10 +19,24 @@ body {
   z-index: 9999;
 }
 
-/* Home Button ---------------------------*/
+/* Home Button --------------------------- */
 #home-btn.button {
-  top: 0px;
-  left: 0px;
+  top: 7px; /* Add 7px padding from the top */
+  left: 7px; /* Add 7px padding from the left */
+  width: 75px; /* Small circle size */
+  height: 75px; /* Small circle size */
+  border-radius: 50%; /* Circular shape */
+  color: var(--cta-btn-text-color); /* Same text color as CTA button */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease; /* Removed background-color transition */
+}
+
+#home-btn.button:hover {
+  color: var(
+    --cta-btn-hover-text-color
+  ); /* Same hover text color as CTA button */
 }
 
 /* Theme Toggle Button ---------------------------*/
@@ -124,6 +138,51 @@ nav a {
   z-index: 4; /* Ensure navigation links are above the gradient image */
 }
 
+/* Clickable Links --------------------------- */
+a:not(.footer a):not(#home-contact a):not(#discord-btn) {
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 8px; /* Rounded corners */
+  background-color: var(--link-btn-background);
+  color: var(--link-btn-text-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a:not(.footer a):not(#home-contact a):not(#discord-btn):hover {
+  background-color: var(--link-btn-hover-background);
+  color: var(--link-btn-hover-text-color);
+}
+
+/* Footer, Contact Us, and Discord Button Links --------------------------- */
+.footer a,
+#home-contact a,
+#discord-btn {
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:hover,
+#home-contact a:hover,
+#discord-btn:hover {
+  color: var(--link-hover-color);
+}
+
+/* Footer and Contact Us Links --------------------------- */
+.footer a,
+#home-contact a {
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:hover,
+#home-contact a:hover {
+  color: var(--link-hover-color);
+}
+
 /* Hero Section ---------------------------*/
 .home-hero {
   padding: 50px;
@@ -134,23 +193,47 @@ nav a {
   z-index: 3; /* Ensure header text is above the gradient image */
 }
 
-/* About Section ---------------------------*/
+.home-hero h1 {
+  margin-bottom: 20px; /* Spacing between title and subtitle */
+}
+
+.home-hero p {
+  margin: 0; /* Remove extra spacing between paragraphs */
+  line-height: 1.6; /* Ensure readable line spacing */
+}
+
+.home-hero .cta-button {
+  margin-top: 20px; /* Match spacing between button and last paragraph */
+}
+
+/* About Section --------------------------- */
 #home-about {
   text-align: center;
-  padding: 50px 20px;
-  background: var(--about-background);
+  padding: 50px 40px; /* Padding for the section */
+  background: var(--about-background); /* Full-width background */
   color: var(--text-color);
   position: relative;
   z-index: 1; /* Ensure about section is below the gradient image */
 }
-#home-about h2 {
-  margin-bottom: 20px;
-  font-size: 2rem;
+
+#home-about .container {
+  max-width: 800px; /* Constrain text width */
+  margin: 0 auto; /* Center the text */
 }
-#home-about p {
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 1.1rem;
+
+/* Legacy/Where We Started Section --------------------------- */
+#home-legacy {
+  text-align: center;
+  padding: 50px 40px; /* Padding for the section */
+  background: var(--about-background); /* Full-width background */
+  color: var(--text-color);
+  position: relative;
+  z-index: 1; /* Ensure consistency with About section */
+}
+
+#home-legacy .container {
+  max-width: 800px; /* Constrain text width */
+  margin: 0 auto; /* Center the text */
 }
 
 /* Features Section ---------------------------*/
@@ -215,6 +298,7 @@ nav a {
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
+  text-decoration: none; /* Remove underline */
 }
 #contact-form btn:hover {
   background: var(--btn-hover-background);
@@ -265,6 +349,36 @@ nav a {
   font-size: 1.1rem;
 }
 
+/* Call-to-Action Button ---------------------------*/
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background-color: var(--cta-btn-background);
+  color: var(--cta-btn-text-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.cta-button:hover {
+  background-color: var(--cta-btn-hover-background);
+  color: var(--cta-btn-hover-text-color);
+}
+
+/* Terms of Service Section --------------------------- */
+#tos-main .container {
+  max-width: 800px; /* Restrict text width */
+  margin: 0 auto; /* Center the text */
+  padding: 20px; /* Add padding for better readability */
+}
+
+/* Privacy Policy Section --------------------------- */
+#privacy-main .container {
+  max-width: 800px; /* Restrict text width */
+  margin: 0 auto; /* Center the text */
+  padding: 20px; /* Add padding for better readability */
+}
+
 /* Light Theme ---------------------------*/
 html[data-theme="light"] {
   --background-color: #fff;
@@ -288,6 +402,14 @@ html[data-theme="light"] {
   --hud-btn-size-adjust-small: 0.4;
   --hud-btn-size-adjust-med: 0.6;
   --hud-btn-size-adjust-big: 1;
+  --cta-btn-background: #47b3b6; /* Distinct teal for better contrast */
+  --cta-btn-hover-background: #2e8a8d; /* Darker teal for hover effect */
+  --cta-btn-text-color: #000; /* Black text for consistency */
+  --cta-btn-hover-text-color: #000; /* Black text on hover */
+  --link-btn-background: #47b3b6; /* Distinct teal for better contrast */
+  --link-btn-hover-background: #2e8a8d; /* Darker teal for hover effect */
+  --link-btn-text-color: #000; /* Black text for consistency */
+  --link-btn-hover-text-color: #000; /* Black text on hover */
 }
 
 /* Dark Theme ---------------------------*/
@@ -313,6 +435,14 @@ html[data-theme="dark"] {
   --hud-btn-size-adjust-small: 0.4;
   --hud-btn-size-adjust-med: 0.6;
   --hud-btn-size-adjust-big: 1;
+  --cta-btn-background: #5e2d66; /* Darker purple matching the hero background */
+  --cta-btn-hover-background: #4a2350; /* Even darker purple for hover effect */
+  --cta-btn-text-color: #fff; /* White text for contrast */
+  --cta-btn-hover-text-color: #fff; /* White text on hover */
+  --link-btn-background: #5e2d66; /* Darker purple matching the hero background */
+  --link-btn-hover-background: #4a2350; /* Even darker purple for hover effect */
+  --link-btn-text-color: #fff; /* White text for contrast */
+  --link-btn-hover-text-color: #fff; /* White text on hover */
 }
 
 /* Apply Theme Colors ---------------------------*/
@@ -323,6 +453,7 @@ body {
 
 #contact-form btn {
   background: var(--btn-background);
+  text-decoration: none; /* Remove underline */
 }
 
 #contact-form btn:hover {
