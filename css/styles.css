@@ -138,6 +138,35 @@ nav a {
   z-index: 4; /* Ensure navigation links are above the gradient image */
 }
 
+/* Header Navigation --------------------------- */
+.header nav ul {
+  display: flex; /* Use flexbox for horizontal alignment */
+  justify-content: center; /* Center the navigation items */
+  flex-wrap: nowrap; /* Prevent wrapping */
+  gap: 10px; /* Add spacing between buttons */
+}
+
+.header nav ul li {
+  flex-shrink: 1; /* Allow items to shrink if needed */
+}
+
+.header nav a {
+  text-decoration: none;
+  color: var(--link-color);
+  font-weight: bold;
+  padding: 8px 12px; /* Adjust padding for better scaling */
+  font-size: 1rem; /* Default font size */
+  transition: font-size 0.3s ease, padding 0.3s ease; /* Smooth scaling */
+}
+
+/* Mobile Adjustments --------------------------- */
+@media screen and (max-width: 767px) {
+  .header nav a {
+    font-size: 0.8rem; /* Scale down font size on mobile */
+    padding: 6px 10px; /* Reduce padding for smaller buttons */
+  }
+}
+
 /* Clickable Links --------------------------- */
 a:not(.footer a):not(#home-contact a):not(#discord-btn) {
   display: inline-block;
