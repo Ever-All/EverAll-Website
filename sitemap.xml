@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage: Always top priority -->
+  <url>
+    <loc>https://ever-all.us/</loc>
+    <lastmod>2025-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- Login page: High priority since it’s a functional entry point -->
+  <url>
+    <loc>https://api.ever-all.us/login</loc>
+    <lastmod>2025-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- Key user-facing utility pages -->
+  <url>
+    <loc>https://ever-all.us/pages/commands/</loc>
+    <lastmod>2025-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ever-all.us/pages/system-status/</loc>
+    <lastmod>2025-05-15</lastmod>
+    <changefreq>daily</changefreq> <!-- Changed from 'always' to 'daily' for better realism -->
+    <priority>0.8</priority>
+  </url>
+  <!-- Legal and policy documents: Important but less frequently accessed -->
+  <url>
+    <loc>https://ever-all.us/pages/privacy-policy/</loc>
+    <lastmod>2025-05-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ever-all.us/pages/terms-of-service/</loc>
+    <lastmod>2025-05-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ever-all.us/pages/cookie-policy/</loc>
+    <lastmod>2025-05-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ever-all.us/pages/refund-policy/</loc>
+    <lastmod>2025-05-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ever-all.us/pages/subscription-terms/</loc>
+    <lastmod>2025-05-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ever-all.us/pages/security-policy/</loc>
+    <lastmod>2025-05-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
+<!--
+  Notes:
+  - The homepage is given the highest priority as it is the main entry point.
+  - The login page is also high priority as it is a functional entry point for users.
+  - Utility pages are important but not as frequently accessed, hence a lower priority.
+  - Legal and policy documents are important but typically accessed less frequently, so they have a lower priority.
+-->

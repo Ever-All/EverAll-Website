@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /pages/
+Allow: /pages/commands/
+Allow: /pages/cookie-policy/
+Allow: /pages/privacy-policy/
+Allow: /pages/refund-policy/
+Allow: /pages/risk-disclaimer/
+Allow: /pages/security-policy/
+Allow: /pages/subscription-terms/
+Allow: /pages/system-status/
+Allow: /pages/terms-of-service/
+
+Sitemap: https://ever-all.us/sitemap.xml
