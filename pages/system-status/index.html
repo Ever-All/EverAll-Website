@@ -55,7 +55,7 @@
         </div>
         <div class="status-footer">
           <p>
-            This page auto-refreshes every 60 seconds. Last updated:
+            This page auto-refreshes every 70 seconds. Last updated:
             <span id="last-updated"></span>
           </p>
           <p>For system issues or concerns, contact us at:</p>
@@ -66,77 +66,127 @@
     <div id="footer-placeholder"></div>
     <script src="/js/script.js" defer></script>
     <script>
-      async function checkServiceStatus() {
-        const webApiEndpoint =
-          "https://api.ever-all.us/api/endpoint/everall-server-health";
-        const discordApiEndpoint =
-          "https://api.ever-all.us/api/endpoint/everall-discord-health";
-
+      const HEALTH_COOKIE_NAME = "everall_health";
+      const API_URL = "https://api.ever-all.us/api/endpoint/health";
+      const CHECK_INTERVAL = 70000; // 70 seconds
+      function getHealthCookie() {
+        const cookie = document.cookie
+          .split("; ")
+          .find((c) => c.startsWith(`${HEALTH_COOKIE_NAME}=`));
+        if (!cookie) return null;
         try {
-          const webApiStatus = await fetch(webApiEndpoint)
-            .then((response) => response.ok)
-            .catch(() => false);
-
-          const discordStatus = await fetch(discordApiEndpoint)
-            .then((response) => response.ok)
-            .catch(() => false);
-
-          // Update status dots
-          const webApiDot = document.querySelector(
-            '[data-service="web-api"] .status-dot'
-          );
-          const discordDot = document.querySelector(
-            '[data-service="discord"] .status-dot'
-          );
-          const statusDot = document.querySelector(
-            ".status-overview .status-dot"
-          );
-          const statusText = document.querySelector(
-            ".status-overview .status-text"
-          );
-
-          webApiDot.className = `status-dot ${
-            webApiStatus ? "operational" : "down"
-          }`;
-          discordDot.className = `status-dot ${
-            discordStatus ? "operational" : "down"
-          }`;
-
-          if (webApiStatus && discordStatus) {
-            statusDot.className = "status-dot full";
-            statusText.className = "status-text full";
-            statusText.textContent = "All Systems Online";
-          } else if (!webApiStatus && !discordStatus) {
-            statusDot.className = "status-dot down";
-            statusText.className = "status-text down";
-            statusText.textContent = "Total System Failure";
-          } else {
-            statusDot.className = "status-dot partial";
-            statusText.className = "status-text partial";
-            statusText.textContent = "Partial System Disruption";
-          }
-        } catch (error) {
-          console.error("Error checking service status:", error);
-          // On error, keep or revert to pending state
-          const dots = document.querySelectorAll(".status-dot");
-          dots.forEach((dot) => (dot.className = "status-dot pending"));
-
-          const statusText = document.querySelector(
-            ".status-overview .status-text"
-          );
-          statusText.className = "status-text pending";
-          statusText.textContent = "Checking System Status...";
+          return JSON.parse(decodeURIComponent(cookie.split("=")[1]));
+        } catch (err) {
+          console.error("Invalid health cookie:", err);
+          return null;
         }
-
-        // Update timestamp
+      }
+      function isCookieValid(cookieData) {
+        if (!cookieData?.rateLimiting?.nextReset) return false;
+        const nextReset = new Date(cookieData.rateLimiting.nextReset);
+        return nextReset > new Date();
+      }
+      async function fetchHealthStatus() {
+        try {
+          const response = await fetch(API_URL);
+          if (!response.ok) {
+            const errorData = await response.json();
+            if (errorData.error === "Too many requests") {
+              // Add 5 seconds buffer to next allowed time
+              const nextCheck = new Date(errorData.nextAllowedTime + 5000);
+              adjustCheckInterval(nextCheck);
+            }
+            throw new Error("Health check failed");
+          }
+          return await response.json();
+        } catch (err) {
+          console.error("Fetch error:", err);
+          return null;
+        }
+      }
+      function adjustCheckInterval(nextCheckTime) {
+        const now = new Date();
+        const delay = nextCheckTime - now;
+        if (delay > 0) {
+          // Clear existing interval and set new one
+          if (window.healthCheckInterval) {
+            clearInterval(window.healthCheckInterval);
+          }
+          setTimeout(() => {
+            checkServiceStatus();
+            // Resume normal interval after this check
+            window.healthCheckInterval = setInterval(
+              checkServiceStatus,
+              CHECK_INTERVAL
+            );
+          }, delay);
+        }
+      }
+      function updateStatusDisplay(services) {
+        const dot = (sel) => document.querySelector(sel + " .status-dot");
+        const text = (sel) => document.querySelector(sel + " .status-text");
+        dot(
+          '[data-service="web-api"]'
+        ).className = `status-dot ${services.server.status}`;
+        dot(
+          '[data-service="discord"]'
+        ).className = `status-dot ${services.discord.status}`;
+        const serverOK = services.server.status === "operational";
+        const discordOK = services.discord.status === "operational";
+        const overallDot = dot(".status-overview");
+        const overallText = text(".status-overview");
+        if (serverOK && discordOK) {
+          overallDot.className = "status-dot full";
+          overallText.className = "status-text full";
+          overallText.textContent = "All Systems Online";
+        } else if (!serverOK && !discordOK) {
+          overallDot.className = "status-dot down";
+          overallText.className = "status-text down";
+          overallText.textContent = "Total System Failure";
+        } else {
+          overallDot.className = "status-dot partial";
+          overallText.className = "status-text partial";
+          overallText.textContent = "Partial System Disruption";
+        }
+      }
+      function showPendingState() {
+        document.querySelectorAll(".status-dot").forEach((dot) => {
+          dot.className = "status-dot pending";
+        });
+        const overviewText = document.querySelector(
+          ".status-overview .status-text"
+        );
+        overviewText.className = "status-text pending";
+        overviewText.textContent = "Checking System Status...";
+      }
+      function updateTimestamp() {
         const now = new Date();
         document.getElementById("last-updated").textContent =
           now.toLocaleString();
       }
+      async function checkServiceStatus() {
+        showPendingState();
+        const cookieData = getHealthCookie();
+        let healthData = null;
+        if (cookieData && isCookieValid(cookieData)) {
+          healthData = cookieData;
+        } else {
+          healthData = await fetchHealthStatus();
+        }
+        if (healthData?.services) {
+          updateStatusDisplay(healthData.services);
+        } else {
+          console.warn("Unable to determine system health.");
+        }
+        updateTimestamp();
+      }
+      // Store interval reference for management
+      window.healthCheckInterval = setInterval(
+        checkServiceStatus,
+        CHECK_INTERVAL
+      );
       // Initial check
       checkServiceStatus();
-      // Check every 60 seconds
-      setInterval(checkServiceStatus, 60000);
     </script>
   </body>
 </html>

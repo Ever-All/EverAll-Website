@@ -364,6 +364,10 @@ html[data-theme="light"] .status-indicator {
   animation: pulse 2s infinite;
 }
 
+.status-dot.offline {
+  background-color: #ff3d00; /* Same color as 'down' status */
+}
+
 @keyframes pulse {
   0% {
     opacity: 1;
