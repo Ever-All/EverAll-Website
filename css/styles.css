@@ -414,7 +414,7 @@ html[data-theme="light"] .status-indicator {
 
 html[data-theme="light"] .status-item,
 html[data-theme="light"] .incident-history {
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--status-container-border);
   background: var(--status-container-background);
 }
 
@@ -442,13 +442,133 @@ html[data-theme="light"] .incident-history {
   padding-right: 24px; /* Offset the dot width to keep text centered */
 }
 
+/* Incident History Section ---------------------------*/
 .incident-history {
   margin: 2rem auto;
-  padding: 1.5rem;
+  padding: 2rem;
+  max-width: 800px;
+}
+
+.incident-item {
   background: var(--feature-card-background);
-  border-radius: 8px;
-  max-width: 600px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added shadow for better visibility */
+  border-left: 5px solid var(--link-color);
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  padding: 1.2rem 1.4rem;
+  box-shadow: 0 2px 8px var(--card-shadow);
+  transition: all 0.2s ease;
+}
+
+.incident-item:hover {
+  box-shadow: 0 4px 12px var(--card-shadow);
+  transform: translateY(-2px);
+}
+
+.incident-header {
+  margin-bottom: 0.8rem;
+}
+
+.incident-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-color);
+}
+
+.incident-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.8rem 0;
+}
+
+.incident-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 9999px;
+  text-transform: capitalize;
+}
+
+/* Badge variations */
+.incident-badge:nth-of-type(1) {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.incident-badge:nth-of-type(2) {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.incident-badge:nth-of-type(3) {
+  background-color: #dcfce7;
+  color: #065f46;
+}
+
+.incident-content {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+.incident-description {
+  margin: 0 0 0.8rem 0;
+  line-height: 1.5;
+}
+
+.incident-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.75rem;
+  color: var(--text-color);
+  opacity: 0.7;
+  border-top: 1px solid var(--status-container-border);
+  padding-top: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+/* Dark theme adjustments */
+html[data-theme="dark"] .incident-item {
+  background: var(--feature-card-background);
+  border-left-color: var(--link-color);
+}
+
+html[data-theme="dark"] .incident-badge:nth-of-type(1) {
+  background-color: rgba(219, 234, 254, 0.1);
+  color: #93c5fd;
+}
+
+html[data-theme="dark"] .incident-badge:nth-of-type(2) {
+  background-color: rgba(254, 226, 226, 0.1);
+  color: #fca5a5;
+}
+
+html[data-theme="dark"] .incident-badge:nth-of-type(3) {
+  background-color: rgba(220, 252, 231, 0.1);
+  color: #6ee7b7;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .incident-item {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .incident-title {
+    font-size: 1rem;
+  }
+
+  .incident-badge {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .incident-content {
+    font-size: 0.85rem;
+  }
 }
 
 /* Contact Section ---------------------------*/

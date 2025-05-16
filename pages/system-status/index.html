@@ -51,7 +51,9 @@
         </div>
         <div class="incident-history">
           <h3>Recent Incidents</h3>
-          <p>No incidents reported in the last 7 days.</p>
+          <div id="incidents-list">
+            <p class="loading">Loading...</p>
+          </div>
         </div>
         <div class="status-footer">
           <p>
@@ -69,6 +71,47 @@
       const HEALTH_COOKIE_NAME = "everall_health";
       const API_URL = "https://api.ever-all.us/api/endpoint/health";
       const CHECK_INTERVAL = 70000; // 70 seconds
+      // Add state tracking
+      let hasLoadedIncidents = false;
+      function formatIncident(incident) {
+        const startDate = new Date(incident.startedAt).toLocaleString();
+        const status =
+          incident.status.charAt(0).toUpperCase() + incident.status.slice(1);
+        const type =
+          incident.type.charAt(0).toUpperCase() + incident.type.slice(1);
+        return `
+          <div class="incident-item">
+            <div class="incident-header">
+              <h4 class="incident-title">${incident.title}</h4>
+            </div>
+            <div class="incident-badges">
+              <span class="incident-badge">${type}</span>
+              <span class="incident-badge">${status}</span>
+              <span class="incident-badge">${incident.service}</span>
+            </div>
+            <div class="incident-content">
+              <p class="incident-description">${incident.description}</p>
+              <div class="incident-meta">
+                Started: ${startDate}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      function updateIncidentHistory(incidents) {
+        const incidentsList = document.getElementById("incidents-list");
+        // Mark that we've received incident data
+        hasLoadedIncidents = true;
+        if (!incidents || incidents.length === 0) {
+          incidentsList.innerHTML =
+            "<p>No incidents reported in the last 7 days.</p>";
+          return;
+        }
+        incidentsList.innerHTML = incidents
+          .sort((a, b) => new Date(b.startedAt) - new Date(a.startedAt))
+          .map(formatIncident)
+          .join("");
+      }
       function getHealthCookie() {
         const cookie = document.cookie
           .split("; ")
@@ -158,6 +201,11 @@
         );
         overviewText.className = "status-text pending";
         overviewText.textContent = "Checking System Status...";
+        // Only show loading for incidents if we've previously had data
+        if (hasLoadedIncidents) {
+          document.getElementById("incidents-list").innerHTML =
+            '<p class="loading">Loading...</p>';
+        }
       }
       function updateTimestamp() {
         const now = new Date();
@@ -173,14 +221,19 @@
         } else {
           healthData = await fetchHealthStatus();
         }
-        if (healthData?.services) {
-          updateStatusDisplay(healthData.services);
+        if (healthData) {
+          if (healthData.services) {
+            updateStatusDisplay(healthData.services);
+          }
+          if (healthData.incidents) {
+            updateIncidentHistory(healthData.incidents);
+          }
         } else {
           console.warn("Unable to determine system health.");
         }
         updateTimestamp();
       }
-      // Store interval reference for management
+      // Store interval reference and start checks
       window.healthCheckInterval = setInterval(
         checkServiceStatus,
         CHECK_INTERVAL
