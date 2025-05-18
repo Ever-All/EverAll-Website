@@ -667,6 +667,8 @@ html[data-theme="dark"] .incident-badge:nth-of-type(3) {
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s ease;
+  border-radius: 6px;
+  overflow: hidden; /* This masks the underline effect */
 }
 
 .contact-link::after {
@@ -679,6 +681,7 @@ html[data-theme="dark"] .incident-badge:nth-of-type(3) {
   background: var(--link-color);
   transform: scaleX(0);
   transition: transform 0.2s ease;
+  border-radius: 1px; /* Slight rounding of the underline edges */
 }
 
 .contact-link:hover {
@@ -701,6 +704,19 @@ html[data-theme="dark"] .incident-badge:nth-of-type(3) {
   width: 20px;
   height: 20px;
   opacity: 0.8;
+}
+
+/* Mobile Adjustments for Contact Email Icons */
+@media screen and (max-width: 767px) {
+  .contact-email svg {
+    width: 16px; /* Slightly smaller on mobile */
+    height: 16px;
+    vertical-align: middle; /* Better alignment with text */
+  }
+
+  .contact-email {
+    font-size: 0.9em; /* Slightly reduce text size */
+  }
 }
 
 .resource-links {
