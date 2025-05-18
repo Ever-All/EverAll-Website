@@ -609,6 +609,126 @@ html[data-theme="dark"] .incident-badge:nth-of-type(3) {
   background: var(--btn-hover-background);
 }
 
+/* Contact Page Styles */
+.contact-container {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 3rem 2rem;
+  background: var(--feature-card-background);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+  text-align: center;
+}
+
+.contact-section h3 {
+  margin-bottom: 3rem;
+  font-size: 1.75rem;
+  color: var(--text-color);
+}
+
+.contact-group {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--status-container-border);
+}
+
+.contact-group:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.contact-group h4 {
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  font-size: 1.2rem;
+}
+
+.contact-group p {
+  margin-bottom: 1.2rem;
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+.contact-links-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contact-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.contact-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--link-color);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.contact-link:hover {
+  color: var(--link-hover-color);
+}
+
+.contact-link:hover::after {
+  transform: scaleX(1);
+}
+
+.contact-email {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.contact-email svg {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+}
+
+.resource-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.resource-links a {
+  color: var(--link-color);
+  text-decoration: none;
+  padding: 0.75rem;
+  transition: color 0.2s ease;
+  text-align: center;
+  border: 1px solid var(--status-container-border);
+  border-radius: 6px;
+}
+
+.resource-links a:hover {
+  color: var(--link-hover-color);
+  background: var(--feature-card-background);
+}
+
 /* Footer Section ---------------------------*/
 .footer {
   text-align: center;
